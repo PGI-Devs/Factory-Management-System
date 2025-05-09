@@ -1,0 +1,38 @@
+  {/* Right column */}
+      <div className='w-full md:w-1/2'>
+        <p className='text-gray-600 text-base md:text-lg'>
+          At Powerline Group of Industries, we deliver reliable, intelligent, and eco-compliant generator solutions.
+          With 3 advanced facilities and a promise of 7-day delivery, we support telecom, retail, banking, hospitals,
+          and industries with gensets ranging from 2.1kVA to 1010kVA — including our latest i-Green “thinking genset” series.
+        </p>
+      </div>
+
+
+
+
+App.jsx:
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+
+function App() {
+  
+
+  return (
+    <main className='relative min-h-screen overflow-x-hidden'>
+      <div className='absolute -top-28 -left-28 w-[500px] h-[500px] bg-gradient-to-tr from-teal-600 via-teal-600 to-teal-500
+ blur-3xl opacity-30 rounded-full'></div>
+
+      <div className='overflow-hidden'>
+      <Navbar/>
+      <Hero/>
+      
+      </div>
+    </main>
+  )
+}
+
+export default App
