@@ -1,0 +1,41 @@
+/* Add this in your global CSS file or styled-component */
+.ant-table-wrapper {
+  /* background-color: #1f1f1f !important;
+  color: #f0f0f0 !important; */
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  margin-top: 16px;
+  overflow-x: scroll;
+}
+
+.ant-table-thead > tr > th {
+  /* background-color: #141414 !important;
+  color: #d9d9d9 !important; */
+  font-size: 13px !important;
+
+}
+.anticon svg {
+  /* color: #d9d9d9 !important; */
+   
+}
+.ant-table-tbody > tr > td {
+  /* background-color: #1f1f1f;
+  color: #f0f0f0; */
+  font-size: 13px !important;
+
+}
+.ant-table-tbody > tr:hover > td {
+  /* background-color: #333333; */
+}
+
+.ant-input {
+  /* background-color: #141414; */
+  /* color: #f0f0f0;
+  border: 1px solid #434343; */
+}
+
+.ant-btn {
+  /* background-color: #262626;
+  color: #fff;
+  border: 1px solid #434343; */
+}

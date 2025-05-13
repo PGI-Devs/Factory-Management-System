@@ -1,0 +1,191 @@
+.compactCard {
+    /* border: 2px solid black; */
+    /* background: rgba(242, 238, 238, 0.925); */
+    /* background-color: #272927;
+    
+    box-shadow: 0px 15px 25px 0px rgba(186, 183, 179, 0.5); */
+    /* background: linear-gradient(rgb(4, 120, 87) 0%, rgb(6, 95, 70) 100%) ; */
+    background: #7a857c;
+    background: linear-gradient(90deg, rgba(122, 133, 124, 1) 0%, rgba(80, 133, 70, 1) 0%, rgba(39, 92, 51, 1) 85%);
+
+    display: flex;
+    justify-content: space-around;
+
+
+    height: 10rem !important;
+    border-radius: 0.7rem;
+    /* color: white; */
+    cursor: pointer;
+    position: relative;
+    padding: 1rem;
+    /* transition: all 0.7s ; */
+    min-width: 18rem !important;
+    width: 18rem;
+    font-family: "Roboto", sans-serif;
+
+
+}
+
+.compactCard:hover {
+    box-shadow: none !important;
+    /* transform: scale(1.03); */
+}
+
+/* radiabar */
+.leftcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    /* margin-right: 10px; */
+    padding: 5px;
+    /* border: 2px solid black; */
+    /* gap: 25px; */
+    color: rgba(255, 255, 255, 0.7);
+    height: 95%;
+}
+
+.cardhead {
+    /* border-bottom: 1px solid black; */
+    text-align: left;
+
+}
+
+.cardhead span {
+    /* font-family: "Roboto"; */
+    font-size: 13px;
+}
+
+.cardhead h3 {
+    font-size: 22px;
+    font-weight: bolder;
+    /* color: #28364b; */
+    color: #fff;
+    margin: 0;
+    padding: 5px;
+    font-family: "Share Tech", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.radialBar {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+
+}
+
+.CircularProgressbar {
+    width: 3rem !important;
+    overflow: visible;
+}
+
+.CircularProgressbar-path {
+    stroke-linecap: square !important;
+}
+
+.CircularProgressbar-text {
+    fill: #fff !important;
+}
+
+.CircularProgressbar-trail {
+    /* display: none; */
+    stroke-width: 15px !important;
+    stroke: rgb(234, 206, 206) !important;
+    /* filter: drop-shadow(2px 4px 6px white); */
+
+
+}
+
+.radialBar span {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-left: 20px;
+
+
+}
+
+.details span {
+    font-size: 12px;
+    font-weight: bold;
+    border-left: 3px solid #224379;
+    /* box-shadow: -8px 0 15px rgba(59, 130, 246, 0.4);  */
+    /* border-radius: 5px; */
+    padding-left: 10px;
+    /* line-height: 2px; */
+
+
+}
+
+.span-head {
+    /* color: rgb(106, 104, 104); */
+    color: rgba(255, 255, 255, 0.5);
+    /* font-size: 17px; */
+}
+
+.span-data {
+    /* color: rgb(53, 48, 48); */
+    color: #fff;
+
+    border-left: none !important;
+    padding-left: 0 !important;
+}
+
+.details span:nth-child(3) {
+
+    /* font-size: 12px; */
+
+
+}
+
+.details span:nth-child(4) {
+
+    /* font-size: 12px; */
+
+
+}
+
+
+/* expandable card */
+
+.ExpandedCard {
+    position: absolute;
+    width: 60%;
+    height: 70vh;
+    z-index: 9;
+    left: 13rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+
+}
+
+.ExpandedCard span:nth-of-type(1) {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: 0px 0px 15px white;
+}
+
+.ExpandedCard span:nth-of-type(2) {
+    color: rgb(223, 222, 222);
+    font-size: 16px;
+
+}
+
+.chartContainer {
+    width: 70%;
+}
