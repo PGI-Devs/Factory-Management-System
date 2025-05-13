@@ -1,0 +1,27 @@
+.storedetailscomponant , .dashboardContainerLayout{
+    /* width: 50%; */
+    /* border: 1px solid rgb(166, 8, 8); */
+    /* overflow-x: hidden; */
+    width: 99%;
+    /* margin: auto; */
+    margin-right: 5px;
+    height: auto;
+     font-family: "Roboto", sans-serif;
+     box-sizing: border-box;
+    /* padding: 10px; */
+
+     /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+}
+
+.storeDetailsTable{
+    /* width: 95%; */
+    overflow-x: scroll;
+    /* border: 2px solid black; */
+    padding: 1vmax;
+    margin: auto;
+/* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 10px;
+    margin-top: 10px;
+    /* background:gray; */
+}

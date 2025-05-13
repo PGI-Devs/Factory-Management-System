@@ -1,0 +1,17 @@
+.Cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-around;
+    /* border: 2px solid red; */
+    margin: 2vmax auto;
+    padding: 10px;
+    /* height: 100%; */
+
+}
+
+.parentContainer {
+    /* border: 2px solid red; */
+    /* width: 100%; */
+}

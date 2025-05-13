@@ -1,0 +1,45 @@
+.navmain{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navContainer {
+    /* border: 2px solid black; */
+
+    width:max-content;
+    border-radius: 8px;
+    padding: 2px 0px;
+    margin: 15px auto;
+    box-shadow: rgba(91, 91, 123, 0.25) 0px 30px 60px -12px inset, rgba(91, 91, 123, 0.25) 0px 18px 36px -18px inset;
+}
+
+.navContainer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navContainer a {
+    transition: all 0.5s ease-in-out;
+
+    margin: 0px 3px;
+    text-decoration: none;
+    padding: 5px 5px;
+    font-size: 12px;
+    color: rgb(107, 104, 104);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px
+}
+
+.navContainer .active {
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    background-color: white;
+    color: black;
+
+}
