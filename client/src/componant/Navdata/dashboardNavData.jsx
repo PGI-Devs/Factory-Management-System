@@ -8,19 +8,20 @@ import { AiOutlineClockCircle, AiOutlineDashboard, AiOutlineDatabase, AiOutlineD
             link: '/details',
             icon: <AiOutlineDashboard />
         },
+       
         {
+            nav: 'Analatic',
+            link: '/details/analysis',
+            icon: <AiOutlinePieChart />
+        },
+         {
             nav: 'Inventory',
             link: '/details/inventory',
             
             icon: <AiOutlineDatabase />
         },
         {
-            nav: 'Analatic',
-            link: '/details/analysis',
-            icon: <AiOutlinePieChart />
-        },
-        {
-            nav: 'History',
+            nav: 'Update Stock',
             icon: <AiOutlineClockCircle />
         },
         {
@@ -38,18 +39,18 @@ import { AiOutlineClockCircle, AiOutlineDashboard, AiOutlineDatabase, AiOutlineD
     export  const StockAnalasysOptions =[
  {
             nav: 'Product',
-            link: '/details',
+            // link: '/details',
             icon: <AiOutlineDashboard />
         },
         {
             nav: 'Department',
-            link: '/details/inventory',
+            // link: '/details/inventory',
             
             icon: <AiOutlineDatabase />
         },
         {
             nav: 'Production',
-            link: '/details/analysis',
+            // link: '/details/analysis',
             icon: <AiOutlinePieChart />
         },
 

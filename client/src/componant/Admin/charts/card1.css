@@ -5,9 +5,9 @@
     
     box-shadow: 0px 15px 25px 0px rgba(186, 183, 179, 0.5); */
     /* background: linear-gradient(rgb(4, 120, 87) 0%, rgb(6, 95, 70) 100%) ; */
-  
- background: #3ba386;
-background: linear-gradient(90deg, rgba(59, 163, 134, 1) 0%, rgba(21, 133, 101, 1) 52%, rgba(4, 120, 87, 1) 100%);
+
+    background: #3ba386;
+    background: linear-gradient(90deg, rgba(59, 163, 134, 1) 0%, rgba(21, 133, 101, 1) 52%, rgba(4, 120, 87, 1) 100%);
 
     display: flex;
     justify-content: space-around;

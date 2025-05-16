@@ -1,8 +1,10 @@
 import React from 'react'
-import ItemTable from '../Table/Table'
+import ItemTable from '../../Table/Table'
 
 import { Button, Input } from 'antd'
 import { AiOutlineDatabase, AiOutlineSearch } from 'react-icons/ai'
+import { LoadingOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons';
+
 const InventoryTable = () => {
 
 
@@ -155,7 +157,7 @@ const InventoryTable = () => {
       title: 'Item',
       dataIndex: 'item',
       key: 'item',
-      // fixed: 'left',
+      fixed: 'left',
 
       filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
         <div style={{ padding: 8 }}>
@@ -243,7 +245,12 @@ const InventoryTable = () => {
   return (
     <div className="storeDetailsTable">
       <h3 className='h3Header'> <AiOutlineDatabase />Inventory Updates</h3>
-      <ItemTable columns={columns} data={data} />
+      <ItemTable columns={columns} data={data} renderExpandedRow={(record) => (
+        <div className="custom-expanded-row">
+          <h1 style={{ margin: 0, color: 'green' }}>{record.name}</h1>
+        
+        </div>
+      )} />
     </div>
   )
 }

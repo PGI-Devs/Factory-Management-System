@@ -135,7 +135,7 @@ const Option =
     },
   ]
 
-const StorAnalatic = () => {
+const StockCards = () => {
   return (
     <>
       <div className='analaticComponant'>
@@ -163,4 +163,4 @@ const StorAnalatic = () => {
   )
 }
 
-export default StorAnalatic
+export default StockCards

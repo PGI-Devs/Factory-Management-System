@@ -1,0 +1,13 @@
+.targetSection{
+/* border: 1px solid black; */
+display: flex;
+justify-content: center;
+align-items: center;
+/* width: 99vw; */
+margin: auto;
+margin-top: 10px;
+height: auto;
+gap: 10px;
+flex-wrap: wrap;
+padding: 10px;
+}

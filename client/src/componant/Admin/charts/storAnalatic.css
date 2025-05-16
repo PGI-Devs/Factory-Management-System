@@ -10,7 +10,10 @@
     margin:0;
     gap: 20px;
      /* background:gray; */
-
+     /* overflow-y: scroll;
+     scrollbar-width: none; 
+  -ms-overflow-style: none;  */
+overflow: hidden;
 }
 .analaticComponantHeader{
     display: flex;
@@ -41,7 +44,7 @@
     align-items: center;
     gap: 5px;
   overflow-y:  scroll;
-     scrollbar-width: none; /* Firefox */
+     scrollbar-width: none; 
   -ms-overflow-style: none; 
 }
 

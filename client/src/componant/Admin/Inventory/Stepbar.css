@@ -1,0 +1,77 @@
+.custom-steps {
+  width: 70% ; /* Set your desired width here */
+  /* max-width: 100%; */
+  margin: auto;
+}
+
+.custom-steps .ant-steps-item-title {
+  font-size: 10px; /* adjust as needed */
+  font-weight: 500;
+ 
+}
+.custom-steps .ant-steps-item-tail::after {
+  background-color: #18ff5d !important; /* Change this to your desired color */
+}
+
+/* Optional: Also update completed step icon background */
+.custom-steps .ant-steps-item-finish .ant-steps-icon {
+  /* background-color: #1890ff; */
+  /* border-color: #1890ff; */
+  color: #0f6903 !important;
+}
+.orderInfoBoxContain{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 10px;
+
+}
+.orderinfoBox{
+  padding: 1vmax;
+display: flex;
+justify-content: space-around;
+  /* border: 1px solid gray; */
+  /* width: 100%; */
+}
+.paymentBox {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+  max-width: 500px;
+  margin: 30px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.paymentBox:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.paymentItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px dashed #d1d5db;
+}
+
+.paymentItem:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: 15px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  background: #f3f4f6;
+  padding: 6px 12px;
+  border-radius: 6px;
+}

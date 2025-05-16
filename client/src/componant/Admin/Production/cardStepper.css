@@ -1,0 +1,29 @@
+/* StepsCustom.css */
+
+.site-navigation-steps .ant-steps-item-title {
+  font-size: 10px; /* Change this value as needed */
+  font-weight: 600; /* Optional: make text bolder */
+}
+
+/* Base icon size */
+.site-navigation-steps .ant-steps-item-icon {
+  width: 10px !important;     /* Increase width */
+  height: 10px !important;    /* Increase height */
+  line-height: 40px !important; /* Center text */
+  font-size: 18px !important; /* Change icon text size */
+}
+
+/* Optional: Adjust icon sizes for different step statuses */
+.site-navigation-steps .ant-steps-item-process .ant-steps-item-icon {
+ width: 10px !important;     /* Increase width */
+  height: 10px !important;    /* Increase height */
+  line-height: 40px !important; /* Center text */
+  font-size: 10px !important; 
+}
+
+.site-navigation-steps .ant-steps-item-finish .ant-steps-item-icon {
+ width: 10px !important;     /* Increase width */
+  height: 10px !important;    /* Increase height */
+  line-height: 40px !important; /* Center text */
+  font-size: 10px !important; 
+}

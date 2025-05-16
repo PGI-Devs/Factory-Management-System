@@ -1,68 +1,167 @@
 .AnalasysComponant {
-    width: 100%;
-    /* border: 1px solid black; */
-    display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* height: auto; */
-    height: 60vh;
-    gap: 10px;
-    
+  width: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: auto; */
+  max-height: 75vh;
+  gap: 10px;
+
+  transition: all 0.5s;
+  margin-bottom: 10px;
+  
+  
 }
 
-.analysisSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border-radius: 5px;
-    /* width: 60%; */
-    padding: 0vmax 1vmax;
-    /* height: 21rem; */
-    /* border: 2px solid black; */
-    height: 100%;
-    position: relative;
-    
+.AnalasysComponantTougle {
+  width: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: auto; */
+  max-height: 17vh;
+  gap: 10px;
+  transition: all 0.5s;
+  margin-bottom: 10px;
+  /* overflow: hidden; */
+}
+
+.tougleBtn {
+  margin: 5px;
+  font-size: 12px;
+  padding: 5px;
+  background-color: #52c41a;
+  transition: all 0.5s;
+}
+
+.tougleBtn:hover {
+
+  background-color: #557b41 !important;
+}
+
+.progress_bar_analysisSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 5px;
+  /* width: 60%; */
+  padding: 0vmax 1vmax;
+  /* height: 21rem; */
+  /* border: 2px solid black; */
+  /* height: 100%; */
+  /* height: auto; */
+  /* position: relative; */
+  /* overflow-y: scroll; */
+  transition: all 0.5s;
+
 }
 
 .analysis_section_contant {
-    border-top: 1px solid black;
-    padding-top: 10px;
-    /* border: 2px solid black; */
-    height: 70%;
-    overflow-y: scroll;
-      scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  
+  border-top: 1px solid rgb(84, 82, 82);
+  /* width: 100%; */
+  padding-top: 10px;
+  /* border: 2px solid black; */
+  height: 70%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
 }
+
 .analysis_section_contant::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, and Opera */
+  display: none;
+  /* Chrome, Safari, and Opera */
 }
-.analysis_section_contant_head{
+
+.analysis_section_contant_head {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-bottom: 2px;
 }
 
 
 
 /* CSS - make sure this is loaded in your project */
 .custom-dark-select .ant-select-selector {
-  border: 1px solid #222 !important;  /* Dark border */
-  color: #111 !important;             /* Dark text */
+  border: 1px solid #222 !important;
+  /* Dark border */
+  color: #111 !important;
+  /* Dark text */
 }
 
 .custom-dark-select .ant-select-selector input {
-  color: #111 !important;             /* Dark input text */
+  color: #111 !important;
+  /* Dark input text */
 }
+
 .custom-dark-select .ant-select-selection-placeholder {
-  color: #444 !important;            /* Darker placeholder */
+  color: #444 !important;
+  /* Darker placeholder */
 }
+
 .custom-dark-select .ant-select-selection-item {
-  color: #111 !important;             /* Dark selected text */
+  color: #111 !important;
+  /* Dark selected text */
 }
 
 .custom-dark-select .ant-select-arrow {
-  color: #111 !important;             /* Dark dropdown arrow */
+  color: #111 !important;
+  /* Dark dropdown arrow */
+}
+
+.analysis_section_contant span {
+
+  color: gray;
+  font-size: 15px;
+}
+
+.custom-progress .ant-progress-bg {
+  border-radius: 5px !important;
+  /* Rounded bar fill */
+}
+
+.custom-progress .ant-progress-inner {
+  border-radius: 5px !important;
+  /* Rounded outer container */
+  overflow: hidden;
+  /* Ensure the fill doesn't overflow */
+}
+
+.custom-progress .ant-progress-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  color: white;
+  /* or black depending on stroke color */
+}
+
+@media (max-width: 700px) {
+  .AnalasysComponant {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+  }
+
+  .analaticComponant {
+   height: 40vh;
+
+  }
+
+  .h3Header {
+    font-size: 12px;
+  }
+  .progress_bar_analysisSection{
+   height: 40vh;
+  }
+.AnalasysComponantTougle{
+  overflow: hidden;
+}
 }

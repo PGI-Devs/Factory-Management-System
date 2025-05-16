@@ -1,6 +1,6 @@
 import React from 'react'
 import "./cardSection.css"
-import Card1 from './Card1'
+import Card1 from '../charts/Card1'
 import { AiOutlineTool } from 'react-icons/ai'
 import { LayoutGroup } from 'framer-motion'
 

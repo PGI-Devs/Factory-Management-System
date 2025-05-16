@@ -1,8 +1,10 @@
 import React from 'react'
-import InventoryTable from './InventoryTable'
-import Sidebar from '../Sidebar/Sidebar'
-import DashboardNavBar from './DashboardNavBar/DashboardNavBar'
-import {navOptions} from '../Navdata/dashboardNavData'
+import InventoryTable from '../Inventory/InventoryTable'
+import Sidebar from '../../Sidebar/Sidebar'
+import DashboardNavBar from '../DashboardNavBar/DashboardNavBar'
+import {navOptions} from '../../Navdata/dashboardNavData'
+import StockAnalasysSection from '../charts/StockAnalasysSection'
+
 const InventoryDetails = () => {
     return (
         <div className='layoutContainer'>
@@ -10,6 +12,7 @@ const InventoryDetails = () => {
             <div className="dashboardContainerLayout">
 
                 <DashboardNavBar  navOptions={navOptions}/>
+                <StockAnalasysSection/>
                 <InventoryTable />
             </div>
         </div>

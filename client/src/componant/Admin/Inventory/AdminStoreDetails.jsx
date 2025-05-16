@@ -1,11 +1,10 @@
 import React from 'react'
 import "./AdminStoreDetails.css"
-import StorAnalatic from './charts/StorAnalaticSection'
-import Sidebar from '../Sidebar/Sidebar'
-import DashboardNavBar from './DashboardNavBar/DashboardNavBar'
-import InventoryTable from './InventoryTable'
-import {navOptions} from "../Navdata/dashboardNavData"
-import StockAnalasis from './charts/StockAnalasis'
+import Sidebar from '../../Sidebar/Sidebar'
+import DashboardNavBar from '../DashboardNavBar/DashboardNavBar'
+import InventoryTable from '../Inventory/InventoryTable'
+import {navOptions} from "../../Navdata/dashboardNavData"
+import StockAnalasysSection from '../charts/StockAnalasysSection'
 
 const AdminStoreDetails = () => {
 
@@ -21,7 +20,7 @@ const AdminStoreDetails = () => {
         <div className="storedetailscomponant">
         <DashboardNavBar  navOptions={navOptions}/>
 
-         <StockAnalasis/>
+         <StockAnalasysSection/>
           <InventoryTable/>
 
         {/* </div> */}

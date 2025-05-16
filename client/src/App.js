@@ -1,12 +1,12 @@
 import { BrowserRouter,Routes, Route} from "react-router-dom"
-import StoreAdminDashboard from "./componant/Admin/StoreAdminDashboard.jsx"
-import AdminStoreDetails from "./componant/Admin/AdminStoreDetails.jsx"
+import StoreAdminDashboard from "./componant/Admin/Inventory/StoreAdminDashboard.jsx"
+import AdminStoreDetails from "./componant/Admin/Inventory/AdminStoreDetails.jsx"
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import InventoryTable from "./componant/Admin/InventoryTable.jsx";
-import InventoryDetails from "./componant/Admin/InventoryDetails.jsx";
-import InvantoryAnalaticDashboard from "./componant/Admin/InvantoryAnalaticDashboard.jsx";
+import InventoryDetails from "./componant/Admin//Inventory/InventoryDetails.jsx";
+import InvantoryAnalaticDashboard from "./componant/Admin/Inventory/InvantoryAnalaticDashboard.jsx";
+import ProductionDashboard from "./componant/Admin/Production/ProductionDashboard.jsx";
 function App() {
 
 const ScrollToTop = () => {
@@ -29,6 +29,7 @@ const ScrollToTop = () => {
     <Route path="/details" Component={AdminStoreDetails}/>
     <Route path="/details/inventory" Component={InventoryDetails}/>
     <Route path="/details/analysis" Component={InvantoryAnalaticDashboard}/>
+    <Route path="/production" Component={ProductionDashboard}/>
   </Routes>
   </BrowserRouter>
   );

@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Table } from 'antd';
 import './table.css'
 
-const ItemTable = ({ columns, data }) => {
+const ItemTable = ({ columns, data ,renderExpandedRow }) => {
 
 
     const [stockOrder, setStockOrder] = useState(null); 
@@ -32,17 +32,19 @@ const sortedData = useMemo(() => {
             dataSource={sortedData}
             onChange={handleTableChange}
             expandable={{
-                expandedRowRender: (record) =>
+                 expandedRowRender : renderExpandedRow ||(  (record) =>
 
 
                     <div>
                         <h1>HIMANGSHU KHOUND</h1>
                         <p style={{ margin: 0 }}>{record.description}</p>
                         <span></span>
-                    </div>
+                    </div>)
                 ,
 
-                rowExpandable: (record) => !!record.description, 
+              rowExpandable: (record) =>
+          renderExpandedRow ? !!renderExpandedRow(record) : !!record.description,
+      
             }}
         />
     );
