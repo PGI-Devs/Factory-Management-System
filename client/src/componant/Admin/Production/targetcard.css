@@ -4,10 +4,37 @@ max-width: 330px;
     /* max-height: 10rem; */
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
     /* border: 2px solid green; */
 }
 
 /* Card Container */
+.completedDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  /* background: linear-gradient(to right, #34714b, #22c532);  */
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.4s ease-in-out;
+  text-align: center;
+  z-index: 10;
+  line-height: 1;
+}
+.completedDiv span{
+  gap: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .card-container {
      /* border: 2px solid green; */
@@ -44,8 +71,8 @@ max-width: 330px;
 .top-right {
   top: 0;
   right: 0;
-  border-top: 2px solid #71f8cd;
-  border-right: 2px solid #71f8cd;
+  /* border-top: 2px solid #71f8cd;
+  border-right: 2px solid #71f8cd; */
   border-top-right-radius: 1rem;
 }
 .bottom-left {
@@ -77,6 +104,8 @@ max-width: 330px;
   border-radius: 9999px;
   font-size: 0.875rem;
   color: white;
+  animation: fadeIn 0.6s ease-in-out;
+
 }
 
 .card-title {
@@ -147,13 +176,17 @@ gap: 10px;
   gap: 2.5rem;
   flex-wrap: wrap;
 }
+.card-buttons svg{
+  
+}
 
 .button-primary {
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding:1vmax;
+  padding:10px;
   border-radius: 9999px;
   background: linear-gradient(to right, #24603f, #08ea7d);
 
@@ -171,7 +204,7 @@ gap: 10px;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 1vmax;
+  padding:10px;
   border-radius: 9999px;
   border: 1px solid #374151;
   color: white;
@@ -190,4 +223,14 @@ gap: 10px;
 
 .group:hover .icon {
   transform: rotate(12deg);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

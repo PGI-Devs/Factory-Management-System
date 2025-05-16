@@ -36,6 +36,42 @@ import { AiOutlineClockCircle, AiOutlineDashboard, AiOutlineDatabase, AiOutlineD
 
     ]
 
+   export const ProductionnavOptions = [
+  
+       {
+           nav: 'Active Production',
+           link: '/production',
+           icon: <AiOutlinePieChart />
+       },
+        {
+      
+            nav: 'Target Board',
+            link: '/details',
+            icon: <AiOutlineDashboard />
+        },
+       
+         {
+            nav: 'Inventory',
+            link: '/details/inventory',
+            
+            icon: <AiOutlineDatabase />
+        },
+        {
+            nav: 'Update Stock',
+            icon: <AiOutlineClockCircle />
+        },
+        {
+            nav: 'Request',
+            icon: <AiOutlineMail />
+        },
+        {
+            nav: 'Ready',
+            icon: <AiOutlineDeliveredProcedure />
+        },
+
+
+    ]
+
     export  const StockAnalasysOptions =[
  {
             nav: 'Product',

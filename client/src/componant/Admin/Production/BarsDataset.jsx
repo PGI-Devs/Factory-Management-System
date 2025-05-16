@@ -1,32 +1,76 @@
-import * as React from 'react';
-import { BarChart } from '@mui/x-charts/BarChart';
-// dataset/department.js
+// BarChart.js
+import React from 'react';
+import {
+  Chart as ChartJS,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+  plugins,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
 
-export const dataset = [
-  { department: 'CNC', count: 23 },
-  { department: 'Fabrication', count: 14 },
-  { department: 'Bending', count: 34 },
-  { department: 'Testing', count: 18 },
-];
+// Register Chart.js components
+ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-export const valueFormatter = (value) => `${value} units`;
-
-const chartSetting = {
-  // yAxis: [{ label: 'Task Count', width: 70 }],
-  height: 120,
+// Sample data (replace with your own)
+const data = {
+  labels: ['CNC', 'FEBRICATION', 'COLORING', 'FEBRICATION','FEBRICATION','CNC'],
+  datasets: [
+    {
+      label: 'Count',
+      data: [12, 19, 3, 5,14,67],
+      backgroundColor: 'rgba(42, 168, 99, 0.6)',
+      
+      
+      // backgroundColor: 'transparent',
+    },
+  ],
 };
 
-export default function BarsDataset() {
-  return (
-    <BarChart
-      width={150}   
-  height={90} 
-      dataset={dataset}
-      xAxis={[{ dataKey: 'department' }]}
-      series={[
-        { dataKey: 'count', valueFormatter },
-      ]}
-      {...chartSetting}
-    />
-  );
-}
+const options = {
+  plugins: {
+    legend: {
+      display: false, // This hides the label
+    },
+  },
+
+  scales: {
+    y: {
+      beginAtZero: true,
+      grid: {
+        drawOnChartArea: false, // removes background grid lines
+      },
+       ticks: {
+        stepSize: 10, // Y-axis steps of 10
+        font: {
+          size: 10,
+        },
+      }
+    },
+      x: {
+      grid: {
+        drawOnChartArea: false,
+      },
+       ticks: {
+        font: {
+          size: 5, // x-axis label font size
+        },
+      },
+    },
+  
+  },
+};
+
+const BarChart = () => {
+  return( 
+
+    <div  style ={{height:'100px'}}className="barchart">
+
+   <Bar data={data} options={options} />;
+  </div>
+  ) 
+};
+
+export default BarChart;

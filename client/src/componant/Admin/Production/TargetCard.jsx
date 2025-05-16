@@ -1,100 +1,77 @@
-import React from 'react'
-import './targetcard.css'
+// TargetCard.js
+import React from 'react';
+import './targetcard.css';
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { Typography } from "antd"
-import BarsDataset from './BarsDataset';
+import { Button, Typography } from "antd";
+import BarChart from './BarsDataset';
+import { MdAddLink, MdCloudCircle, MdDone } from 'react-icons/md';
+import { AiFillClockCircle, AiOutlineClockCircle } from 'react-icons/ai';
+
 const { Title } = Typography;
-const TargetCard = () => {
+
+const TargetCard = ({ item }) => {
     return (
         <div className="card-wrapper">
             <div className="card-container">
                 <div className="corner top-left" />
-                <div className="corner top-right" />
+                <div className="corner top-right" >
+
+                    <div
+                        className="completedDiv"
+                        style={{
+                            backgroundColor: item?.status === 'done' ? '#12c52d' : '#ffc107', // green for done, yellow for others
+                        }}
+                    >
+                        {item?.status === 'done' ? (
+                            <span><MdDone /> {item.status}</span>
+                        ) : (
+                            <span><AiOutlineClockCircle /> {item.status}</span>
+                        )}
+                        <br />
+                        <span>{item.doneDate || '12-05-2025'}</span>
+                    </div>
+
+
+
+                </div>
                 <div className="corner bottom-left" />
                 <div className="corner bottom-right" />
                 <div className="card-content">
                     <div className="date-label">
-                        14th April 2024 - Present
+                        {item.startDate}
                     </div>
-                    <h2 className="card-title">Batch No : #0kv-340</h2>
-                    <h3 className="card-subtitle">Item : 30kv</h3>
-                    <h3 className="card-subtitle">Item Count : 7unit</h3>
+                    <h2 className="card-title">Batch Id : {item.targetId}</h2>
+                    <h3 className="card-subtitle">Unit Name : {item.unitName}</h3>
+                    <h3 className="card-subtitle">Target : {item.targetBatch} Batch</h3>
                     <div className="card-description">
-                        <div className="CircularProgressSection">
-                           
-                            <div className='CircularProgress'>
-                                <CircularProgressbar
-                                    styles={{
-                                        path: {
-                                            stroke: 'green', // Custom stroke color
-                                            strokeWidth: 15, // Custom stroke width
-                                            //   filter: 'drop-shadow(2px 4px 6px green)', 
-                                        }
-                                    }}
-                                    value={80}
-                                    text={`80%`}
-                                /></div>
-                                 <Title level={5} >Ready</Title >
-                          
-                        </div>
-                        <div className="CircularProgressSection">
-                         
-                            <div className='CircularProgress'>
-                                <CircularProgressbar
-                                    styles={{
-                                        path: {
-                                            stroke: 'yellow', // Custom stroke color
-                                            strokeWidth: 15, // Custom stroke width
-                                            //   filter: 'drop-shadow(2px 4px 6px green)', 
-                                        }
-                                    }}
-                                    value={10}
-                                    text={`10%`}
-                                /></div>
-                                   <Title level={5} >Processing</Title >
-                          
-                        </div>
-                        <div className="CircularProgressSection">
-                         
-                            <div className='CircularProgress'>
-                                <CircularProgressbar
-                                    styles={{
-                                        path: {
-                                            stroke: 'yellow', // Custom stroke color
-                                            strokeWidth: 15, // Custom stroke width
-                                            //   filter: 'drop-shadow(2px 4px 6px green)', 
-                                        }
-                                    }}
-                                    value={10}
-                                    text={`10%`}
-                                /></div>
-                                   <Title level={5} >Testing</Title >
-                           
-                        </div>
+                        {[
+                            { label: 'Ready', value: item.progressData.ready, color: 'green' },
+                            { label: 'Processing', value: item.progressData.processing, color: 'yellow' },
+                            { label: 'Testing', value: item.progressData.testing, color: 'orange' },
+                        ].map((section, index) => (
+                            <div key={index} className="CircularProgressSection">
+                                <div className='CircularProgress'>
+                                    <CircularProgressbar
+                                        styles={{
+                                            path: {
+                                                stroke: section.color,
+                                                strokeWidth: 15,
+                                            },
+                                        }}
+                                        value={section.value}
+                                        text={`${section.value}%`}
+                                    />
+                                </div>
+                                <Title level={5}>{section.label}</Title>
+                            </div>
+                        ))}
                     </div>
                     <div className="card-tags">
-                        {/* <span className="tag">Tag 1</span>
-                        <span className="tag">Tag 2</span>
-                        <span className="tag">Tag 3</span> */}
-
-                        <BarsDataset/>
+                        <BarChart />
                     </div>
                     <div className="card-buttons">
-                        <a href="#" className="button-primary group">
-                            Details
-                            <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                <polyline points="15 3 21 3 21 9" />
-                                <line x1={10} y1={14} x2={21} y2={3} />
-                            </svg>
-                        </a>
-                        <a href="#" className="button-secondary group">
-                            Certificate
-                            <svg xmlns="http://www.w3.org/2000/svg" className="icon" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                                <circle cx={12} cy={8} r={7} />
-                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-                            </svg>
-                        </a>
+                        {/* Future buttons can be added here */}
+                        {/* <Button  type="primary" style={{ backgroundColor: 'green', borderColor: 'green' }}>Approved</Button> */}
                     </div>
                 </div>
             </div>
