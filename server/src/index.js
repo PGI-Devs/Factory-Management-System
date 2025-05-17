@@ -7,7 +7,7 @@ app.use("/test", (req, res) => {
 })
 
 app.use("/main", (req, res) => {
-    res.send("another route")
+    res.send("another route main")
 })
 
 app.listen(port, () => {

@@ -8,4 +8,5 @@
 
 # To skip the problem of running server again and again use nodemon package
    - install nodemon globally to your system ```npm install -g nodemon
-   - run ```nodemon ./index.js``` 
+   - run ```nodemon ./index.js```
+   ...
