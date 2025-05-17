@@ -9,7 +9,7 @@ const departments = [
   { name: 'Production Manager', path: '/production_dashboard' },
   { name: 'Purchase Manager', path: '/purchase_dashboard' },
   { name: 'General Manager', path: '/' },
-  { name: 'Store Manager', path: '/store-manager' },
+  { name: 'Store Manager', path: '/store_dashboard' },
   { name: 'Sales Manager', path: '/sales_dashboard' },
   { name: 'Quality Manager', path: '/quality_dashboard' },
 ];

@@ -39,6 +39,13 @@ import PDIPage from "./componant/dept_quality/pdi_page.js";
 import QualityReportsPage from "./componant/dept_quality/quality_reports.js";
 import SalesDashboard from "./componant/Sales/sales_dashboard.js";
 import SalesInventoryPage from "./componant/Sales/sales_inventory.js";
+import SalesReportPage from "./componant/Sales/sales_report.js";
+import SalesHistoryPage from "./componant/Sales/sales_history.js";
+import InvoicesPage from "./componant/Sales/sales_invoices.js";
+import CustomersPage from "./componant/Sales/sales_customers.js";
+import StoreDashboard from "./componant/store/store_dashboard.js";
+import StoreRequirements from "./componant/store/store_requirements.js";
+import AssignedItems from "./componant/store/store_assigned.js";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -76,7 +83,21 @@ function App() {
         </Route>
      <Route path="/sales_dashboard" element={<SalesDashboard />} >
      <Route path="sales_inventory" element={<SalesInventoryPage />}/ >
+     <Route path="sales_report" element={<SalesReportPage />}/ >
+     <Route path="sales_history" element={<SalesHistoryPage />}/ >
+     <Route path="sales_invoices" element={<InvoicesPage />}/ >
+     <Route path="sales_customers" element={<CustomersPage />}/ >
      </Route>
+<Route path="/store_dashboard" element={<StoreDashboard />} >
+<Route path="store_requirements" element={<StoreRequirements/>} />
+
+<Route path="bill_of_materials" element={<BillOfMaterials/>} />
+<Route path="assigned_items" element={<AssignedItems/>} />
+
+</Route>
+
+
+
         <Route path="/dashboard" element={<StoreAdminDashboard />} />
         <Route path="/details" element={<AdminStoreDetails />} />
         <Route path="/details/inventory" element={<InventoryDetails />} />

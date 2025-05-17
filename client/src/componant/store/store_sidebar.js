@@ -2,52 +2,47 @@ import React, { useState } from "react";
 import { Layout, Menu } from "antd";
 import {
   AppstoreOutlined,
-  BarChartOutlined,
+  CheckCircleOutlined,
   FileTextOutlined,
   FileDoneOutlined,
-  UserOutlined,
+  ToolOutlined,
 } from "@ant-design/icons";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const { Sider } = Layout;
 
-const SalesSidebar = () => {
+const StoreSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const selectedKey = location.pathname.split("/")[2] || "sales_inventory";
+  const selectedKey = location.pathname.split("/")[2] || "requirements";
 
   const menuItems = [
     {
       key: "",
-      icon: <AppstoreOutlined style={{ color: "#ffffff" }} />,
+      icon: <FileTextOutlined style={{ color: "#ffffff" }} />,
       label: "Home",
     },
     {
-      key: "sales_dashboard/sales_inventory",
-      icon: <AppstoreOutlined style={{ color: "#ffffff" }} />,
-      label: "Inventory / Stock",
-    },
-    {
-      key: "sales_dashboard/sales_report",
-      icon: <BarChartOutlined style={{ color: "#ffffff" }} />,
-      label: "Sales Report",
-    },
-    {
-      key: "sales_dashboard/sales_history",
+      key: "store_dashboard/store_requirements",
       icon: <FileTextOutlined style={{ color: "#ffffff" }} />,
-      label: "Sales History",
+      label: "Requirements",
     },
     {
-      key: "sales_dashboard/sales_invoices",
+      key: "store_dashboard/delivered",
+      icon: <CheckCircleOutlined style={{ color: "#ffffff" }} />,
+      label: "Delivered",
+    },
+    {
+      key: "store_dashboard/bill_of_materials",
       icon: <FileDoneOutlined style={{ color: "#ffffff" }} />,
-      label: "Invoices",
+      label: "Bill of Materials",
     },
     {
-      key: "sales_dashboard/sales_customers",
-      icon: <UserOutlined style={{ color: "#ffffff" }} />,
-      label: "Customers",
+      key: "store_dashboard/assigned_items",
+      icon: <ToolOutlined style={{ color: "#ffffff" }} />,
+      label: "Assigned",
     },
   ];
 
@@ -63,14 +58,14 @@ const SalesSidebar = () => {
       width={250}
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(180deg, #064e3b, #065f46)",
+        background: "linear-gradient(180deg, #064e3b, #065f46)", // Green gradient
       }}
     >
       <div
         style={{
           height: 64,
           margin: 16,
-          backgroundColor: "#10b981",
+          backgroundColor: "#10b981", // Emerald green
           textAlign: "center",
           color: "#ffffff",
           fontWeight: "bold",
@@ -81,12 +76,12 @@ const SalesSidebar = () => {
           boxShadow: `0 0 10px #10b981aa`,
         }}
       >
-        Sales Dept
+        Store Dept
       </div>
 
       <Menu
         theme="dark"
-        selectedKeys={[`sales_dashboard/${selectedKey}`]}
+        selectedKeys={[`store_dashboard/${selectedKey}`]}
         mode="inline"
         onClick={onMenuSelect}
         style={{
@@ -99,4 +94,4 @@ const SalesSidebar = () => {
   );
 };
 
-export default SalesSidebar;
+export default StoreSidebar;
