@@ -28,10 +28,10 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChart = ({data,options}) => {
   return (
-    <div>
+    <>
       {/* <h3 style={{ textAlign: "center" }}>Static Pie Chart</h3> */}
       <Pie data={data}  options={options}/>
-    </div>
+    </>
   );
 };
 

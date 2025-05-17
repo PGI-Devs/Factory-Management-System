@@ -1,20 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Sidebar from '../../Sidebar/Sidebar'
 import DashboardNavBar from '../DashboardNavBar/DashboardNavBar'
-import { ProductionnavOptions, StockAnalasysOptions } from '../../Navdata/dashboardNavData'
-import { useLocation, useParams } from 'react-router-dom'
+import { ProductionnavOptions } from '../../Navdata/dashboardNavData'
+import {  useParams } from 'react-router-dom'
 import "./productiontargetDetails.css"
 import ItemTable from '../../Table/Table'
-import { Button, Collapse, DatePicker, Input } from 'antd'
+import { Button,  DatePicker, Input } from 'antd'
 import { AiOutlineSearch } from 'react-icons/ai'
 import dayjs from 'dayjs';
-import ProgressBarSection from '../charts/ProgressBarSection'
 import PieChart from '../charts/PieChart'
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 import BarChart from './BarChart'
-import { MdArrowCircleRight, MdBusiness, MdViewColumn } from 'react-icons/md'
+import { MdArrowCircleRight,   } from 'react-icons/md'
 import StepProgress from '../charts/StepProgress'
-import { FaShippingFast } from 'react-icons/fa'
+import DoughnutChart from '../charts/DonutChart'
 
 
 
@@ -58,7 +56,7 @@ const data = [
     batch_id: 'GEN-SET-2000',
     item: 'PowerGen Max 15kVA',
     count: 5,
-    variant: '15 kVA | Diesel',
+    variant: '35 kVA -III',
     category: 'Silent Genset',
     location: 'Assembly Line A',
     statuses: [
@@ -73,7 +71,7 @@ const data = [
     batch_id: 'GEN-SET-2001',
     item: 'VoltPro Eco 25kVA',
     count: 3,
-    variant: '25 kVA | Diesel',
+    variant: '35 kVA -II',
     category: 'Open Genset',
     location: 'Assembly Line B',
     statuses: [
@@ -88,7 +86,7 @@ const data = [
     batch_id: 'GEN-SET-2002',
     item: 'GenPrime Silent 62.5kVA',
     count: 4,
-    variant: '62.5 kVA | Silent',
+    variant: '35 kVA -I',
     category: 'Silent Genset',
     location: 'Silent Zone',
     statuses: [
@@ -105,7 +103,7 @@ const data = [
     batch_id: 'GEN-SET-2003',
     item: 'EcoPower Basic 10kVA',
     count: 6,
-    variant: '10 kVA | Diesel',
+    variant: '35 kVA -III',
     category: 'Open Genset',
     location: 'Testing Bay',
     statuses: [
@@ -118,7 +116,7 @@ const data = [
     batch_id: 'GEN-SET-2004',
     item: 'MegaWatt Pro 100kVA',
     count: 2,
-    variant: '100 kVA | Heavy-Duty',
+    variant: '35 kVA -II',
     category: 'Industrial',
     location: 'Heavy Assembly Zone',
     statuses: [
@@ -134,7 +132,21 @@ const data = [
     batch_id: 'GEN-SET-2005',
     item: 'TurboVolt Compact 20kVA',
     count: 7,
-    variant: '20 kVA | Petrol',
+    variant: '35 kVA -III',
+    category: 'Portable Genset',
+    location: 'Portable Unit Area',
+    statuses: [
+      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
+    ],
+  },
+  {
+    key: 6,
+    batch_id: 'GEN-SET-2005',
+    item: 'TurboVolt Compact 20kVA',
+    count: 7,
+    variant: '35 kVA -II',
     category: 'Portable Genset',
     location: 'Portable Unit Area',
     statuses: [
@@ -144,6 +156,66 @@ const data = [
       { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-20T11:40:00', out: '' },
     ],
   },
+  {
+    key: 7,
+    batch_id: 'GEN-SET-2005',
+    item: 'TurboVolt Compact 20kVA',
+    count: 7,
+    variant: '35 kVA -III',
+    category: 'Portable Genset',
+    location: 'Portable Unit Area',
+    statuses: [
+      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
+      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-20T11:40:00', out: '' },
+    ],
+  },
+  {
+    key: 8,
+    batch_id: 'GEN-SET-2005',
+    item: 'TurboVolt Compact 20kVA',
+    count: 7,
+    variant: '35 kVA -II',
+    category: 'Portable Genset',
+    location: 'Portable Unit Area',
+    statuses: [
+      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
+    ],
+  },
+  {
+    key: 9,
+    batch_id: 'GEN-SET-2005',
+    item: 'TurboVolt Compact 20kVA',
+    count: 7,
+    variant: '35 kVA -I',
+    category: 'Portable Genset',
+    location: 'Portable Unit Area',
+    statuses: [
+      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
+      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-20T11:40:00', out: '' },
+    ],
+  },
+  {
+    key: 10,
+    batch_id: 'GEN-SET-2005',
+    item: 'TurboVolt Compact 20kVA',
+    count: 7,
+    variant: '35 kVA -III',
+    category: 'Portable Genset',
+    location: 'Portable Unit Area',
+    statuses: [
+      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '' },
+    ],
+  },
+ 
+ 
 ];
 
 
@@ -336,7 +408,7 @@ const data = [
           drawOnChartArea: false, // removes background grid lines
         },
         ticks: {
-          stepSize: 10, // Y-axis steps of 10
+          stepSize: 1, // Y-axis steps of 10
           font: {
             size: 10,
           },
@@ -378,6 +450,28 @@ const data = [
   };
 
 
+const variantCountMap = data.reduce((acc, item) => {
+  acc[item.variant] = (acc[item.variant] || 0) + item.count;
+  return acc;
+}, {});
+
+// ---- 2. EXTRACT UNIQUE LABELS + TOTALS -------------------------------------------
+const labels = Object.keys(variantCountMap);     // ['15 kVA | Diesel', '25 kVA | Diesel', '62.5 kVA | Silent', ...]
+const values = Object.values(variantCountMap);   // [5, 3, 4, 6, 2, 7]  ← counts are now summed
+
+
+const colors = [
+  'rgba(54, 162, 235, 0.7)',
+  'rgba(255, 99, 132, 0.7)',
+  'rgba(255, 206, 86, 0.7)',
+  'rgba(75, 192, 192, 0.7)',
+  'rgba(153, 102, 255, 0.7)',
+  'rgba(255, 159, 64, 0.7)',
+  // add more if you have more labels
+];
+
+
+
   return (
 
     <div className='layoutContainer'>
@@ -396,8 +490,17 @@ const data = [
             {/* <ProgressBarSection graphOption={graphOption} activeNav={activeNav} HandelNavClick={HandelNavClick} StockAnalasysOptions={StockAnalasysOptions} Option={Option} /> */}
             <div className="workDetailsCharts">
 
+             <div>
               <PieChart data={pieChartData} />
+              </div> 
+             <div>
+              
               <BarChart options={options} data={barData} />
+              </div> 
+             <div  >
+              
+              <DoughnutChart colors={colors} labels={labels} values={values} title="Batch GEN-SET-2002" />
+              </div> 
             </div>
           </div>
 

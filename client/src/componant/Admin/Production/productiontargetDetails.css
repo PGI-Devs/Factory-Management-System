@@ -12,25 +12,32 @@
     justify-content: space-around;
     gap: 10px;
     /* padding: 10px; */
-    height: 90vh;
+    /* height: 100%; */
     /* width: 100%; */
     /* border: 1px solid black; */
     /* flex-wrap: wrap; */
 }
 
 .workDetailsCharts {
-    height: 100%;
+ 
+    padding: 10px;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     /* border: 1px solid black; */
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    gap: 20px;
+    /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
+    gap: 30px;
     border-radius: 10px;
-
+    
 }
-
+.workDetailsCharts div{
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 10px;
+    /* border: 1px solid black; */
+}
 @media (max-width: 700px) {
 
     .tableAndGrapgdiv {
