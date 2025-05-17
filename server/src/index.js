@@ -3,7 +3,7 @@ const app = express();
 const port = 1414;
 
 app.use("/test", (req, res) => {
-    res.send("Server started ")
+    res.send("Server started")
 })
 
 app.use("/main", (req, res) => {
