@@ -5,7 +5,7 @@ import AdminStoreDetails from "./componant/Admin/Inventory/AdminStoreDetails.jsx
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import InventoryDetails from "./componant/Admin//Inventory/InventoryDetails.jsx";
-import InvantoryAnalaticDashboard from "./componant/Admin/Inventory/InvantoryAnalaticDashboard.jsx";
+import InventoryPurchesUpdate from "./componant/Admin/Inventory/InventoryPurchesUpdate.jsx";
 import ProductionDashboard from "./componant/Admin/Production/ProductionDashboard.jsx";
 import ProductionTargetDetails from "./componant/Admin/Production/ProductionTargetDetails.jsx";
 function App() {
@@ -27,9 +27,9 @@ const ScrollToTop = () => {
   <ScrollToTop/>
   <Routes>
     <Route path="/" Component={StoreAdminDashboard}/>
-    <Route path="/details" Component={AdminStoreDetails}/>
+    <Route path="/details/:id" Component={AdminStoreDetails}/>
     <Route path="/details/inventory" Component={InventoryDetails}/>
-    <Route path="/details/analysis" Component={InvantoryAnalaticDashboard}/>
+    <Route path="/details/purches" Component={InventoryPurchesUpdate}/>
     <Route path="/production" Component={ProductionDashboard}/>
     <Route path="/production/target/:id" Component={ProductionTargetDetails}/>
   </Routes>

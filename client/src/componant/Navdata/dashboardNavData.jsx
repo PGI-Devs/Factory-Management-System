@@ -5,13 +5,13 @@ import { AiOutlineClockCircle, AiOutlineDashboard, AiOutlineDatabase, AiOutlineD
         {
       
             nav: 'Dashboard',
-            link: '/details',
+            link: '/details/:id',
             icon: <AiOutlineDashboard />
         },
        
         {
-            nav: 'Analatic',
-            link: '/details/analysis',
+            nav: 'Purches',
+            link: '/details/purches',
             icon: <AiOutlinePieChart />
         },
          {

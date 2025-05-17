@@ -1,31 +1,42 @@
-.Targetheader{
+.Targetheader {
     background-color: rgb(6, 130, 80);
-    border-radius: 10px ;
+    border-radius: 10px;
     padding: 1vmax;
     margin: 1vmax;
     color: aliceblue;
 }
+
 .tableAndGrapgdiv {
-display: flex;
-/* align-items: flex-start; */
-justify-content: space-around;
-gap: 10px;
-padding: 10px;
-/* width: 100%; */
-/* border: 1px solid black; */
-/* flex-wrap: wrap; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 10px;
+    /* padding: 10px; */
+    height: 90vh;
+    /* width: 100%; */
+    /* border: 1px solid black; */
+    /* flex-wrap: wrap; */
 }
-.workDetailsCharts{
+
+.workDetailsCharts {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-   
+    /* border: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    gap: 20px;
+    border-radius: 10px;
+
 }
 
 @media (max-width: 700px) {
 
-    .tableAndGrapgdiv{
+    .tableAndGrapgdiv {
         flex-direction: column;
+        height: auto;
+        justify-content: center;
+        align-items: center;
     }
 }

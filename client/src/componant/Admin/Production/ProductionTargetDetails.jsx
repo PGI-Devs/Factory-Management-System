@@ -5,13 +5,19 @@ import { ProductionnavOptions, StockAnalasysOptions } from '../../Navdata/dashbo
 import { useLocation, useParams } from 'react-router-dom'
 import "./productiontargetDetails.css"
 import ItemTable from '../../Table/Table'
-import { Button, DatePicker, Input } from 'antd'
+import { Button, Collapse, DatePicker, Input } from 'antd'
 import { AiOutlineSearch } from 'react-icons/ai'
 import dayjs from 'dayjs';
 import ProgressBarSection from '../charts/ProgressBarSection'
 import PieChart from '../charts/PieChart'
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import BarChart from './BarChart'
+import { MdArrowCircleRight, MdBusiness, MdViewColumn } from 'react-icons/md'
+import StepProgress from '../charts/StepProgress'
+import { FaShippingFast } from 'react-icons/fa'
+
+
+
 const ProductionTargetDetails = () => {
 
   const { id } = useParams()
@@ -32,112 +38,113 @@ const ProductionTargetDetails = () => {
 
 
 
-const STATUS_COLORS = {
-  READY:      '#4CAF50', // green
-  TESTING:    '#36A2EB', // blue
-  FABRICATION:'#4BC0C0', // teal
-  COATING:    '#FFCD56', // yellow
-  BANDING:    '#FF9F40', // orange
-  CNC:        '#FF6384', // red / tomato
+ const STATUS_COLORS = {
+  'CNC': '#FF6384', // red / tomato
+  'POWDER COATING & TREATMENT PLANT': '#FFCD56', // yellow
+  'ENGINE & CANOPY ASSEMBLING': '#FF9F40', // orange
+  'ROCKWOOL & FOAM FITTING DEPARTMENT': '#4BC0C0', // teal
+  'ELECTRICAL & PANEL DEPARTMENT': '#36A2EB', // blue
+  'TESTING DEPARTMENT': '#4CAF50', // green
 };
 
-const getStatusColor = step =>
-  STATUS_COLORS[step?.toUpperCase()] || '#888';   
+
+  const getStatusColor = step =>
+    STATUS_COLORS[step?.toUpperCase()] || '#888';
 
 
-
-  const data = [
-    {
-      key: 0,
-      batch_id: 'GEN-SET-2000',
-      item: 'PowerGen Max 15kVA',
-      count: 5,
-      variant: '15 kVA | Diesel',
-      category: 'Silent Genset',
-      location: 'Assembly Line A',
-      statuses: [
-        { step: 'CNC', time: '2025-05-15T08:00:00' },
-        { step: 'BANDING', time: '2025-05-15T10:00:00' },
-        { step: 'COATING', time: '2025-05-15T12:30:00' },
-        { step: 'FABRICATION', time: '2025-05-15T14:15:00' },
-      ],
-    },
-    {
-      key: 1,
-      batch_id: 'GEN-SET-2001',
-      item: 'VoltPro Eco 25kVA',
-      count: 3,
-      variant: '25 kVA | Diesel',
-      category: 'Open Genset',
-      location: 'Assembly Line B',
-      statuses: [
-        { step: 'CNC', time: '2025-05-16T09:00:00' },
-        { step: 'BANDING', time: '2025-05-16T10:45:00' },
-        { step: 'COATING', time: '2025-05-16T13:10:00' },
-      ],
-    },
-    {
-      key: 2,
-      batch_id: 'GEN-SET-2002',
-      item: 'GenPrime Silent 62.5kVA',
-      count: 4,
-      variant: '62.5 kVA | Silent',
-      category: 'Silent Genset',
-      location: 'Silent Zone',
-      statuses: [
-        { step: 'CNC', time: '2025-05-17T07:45:00' },
-        { step: 'BANDING', time: '2025-05-17T09:30:00' },
-        { step: 'COATING', time: '2025-05-17T11:15:00' },
-        { step: 'FABRICATION', time: '2025-05-17T13:00:00' },
-        { step: 'TESTING', time: '2025-05-17T14:40:00' },
-        { step: 'READY', time: '2025-05-17T15:40:00' },
-      ],
-    },
-    {
-      key: 3,
-      batch_id: 'GEN-SET-2003',
-      item: 'EcoPower Basic 10kVA',
-      count: 6,
-      variant: '10 kVA | Diesel',
-      category: 'Open Genset',
-      location: 'Testing Bay',
-      statuses: [
-        { step: 'CNC', time: '2025-05-18T08:20:00' },
-        { step: 'BANDING', time: '2025-05-18T10:05:00' },
-      ],
-    },
-    {
-      key: 4,
-      batch_id: 'GEN-SET-2004',
-      item: 'MegaWatt Pro 100kVA',
-      count: 2,
-      variant: '100 kVA | Heavy-Duty',
-      category: 'Industrial',
-      location: 'Heavy Assembly Zone',
-      statuses: [
-        { step: 'CNC', time: '2025-05-19T09:10:00' },
-        { step: 'BANDING', time: '2025-05-19T11:00:00' },
-        { step: 'COATING', time: '2025-05-19T12:40:00' },
-        { step: 'FABRICATION', time: '2025-05-19T14:20:00' },
-        { step: 'TESTING', time: '2025-05-19T16:05:00' },
-      ],
-    },
-    {
-      key: 5,
-      batch_id: 'GEN-SET-2005',
-      item: 'TurboVolt Compact 20kVA',
-      count: 7,
-      variant: '20 kVA | Petrol',
-      category: 'Portable Genset',
-      location: 'Portable Unit Area',
-      statuses: [
-        { step: 'CNC', time: '2025-05-20T08:05:00' },
-        { step: 'BANDING', time: '2025-05-20T09:50:00' },
-        { step: 'COATING', time: '2025-05-20T11:25:00' },
-        { step: 'FABRICATION', time: '2025-05-20T13:10:00' },
-      ],
-    },
-  ];
+const data = [
+  {
+    key: 0,
+    batch_id: 'GEN-SET-2000',
+    item: 'PowerGen Max 15kVA',
+    count: 5,
+    variant: '15 kVA | Diesel',
+    category: 'Silent Genset',
+    location: 'Assembly Line A',
+    statuses: [
+      { step: 'CNC', in: '2025-05-15T08:00:00', out: '2025-05-15T09:00:00' },
+      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-15T09:15:00', out: '2025-05-15T10:30:00' },
+      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-15T11:00:00', out: '2025-05-15T12:30:00' },
+      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-15T13:00:00', out: '' },
+    ],
+  },
+  {
+    key: 1,
+    batch_id: 'GEN-SET-2001',
+    item: 'VoltPro Eco 25kVA',
+    count: 3,
+    variant: '25 kVA | Diesel',
+    category: 'Open Genset',
+    location: 'Assembly Line B',
+    statuses: [
+      { step: 'CNC', in: '2025-05-16T09:00:00', out: '2025-05-16T10:00:00' },
+      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-16T10:15:00', out: '2025-05-16T11:45:00' },
+      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-16T12:10:00', out: '2025-05-16T13:10:00' },
+      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-16T13:30:00', out: '' },
+    ],
+  },
+  {
+    key: 2,
+    batch_id: 'GEN-SET-2002',
+    item: 'GenPrime Silent 62.5kVA',
+    count: 4,
+    variant: '62.5 kVA | Silent',
+    category: 'Silent Genset',
+    location: 'Silent Zone',
+    statuses: [
+      { step: 'CNC', in: '2025-05-17T07:45:00', out: '2025-05-17T08:45:00' },
+      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-17T09:00:00', out: '2025-05-17T10:30:00' },
+      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-17T10:45:00', out: '2025-05-17T11:15:00' },
+      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-17T11:30:00', out: '2025-05-17T13:00:00' },
+      { step: 'ELECTRICAL & PANEL DEPARTMENT', in: '2025-05-17T13:15:00', out: '2025-05-17T14:40:00' },
+      { step: 'TESTING DEPARTMENT', in: '2025-05-17T14:50:00', out: '' },
+    ],
+  },
+  {
+    key: 3,
+    batch_id: 'GEN-SET-2003',
+    item: 'EcoPower Basic 10kVA',
+    count: 6,
+    variant: '10 kVA | Diesel',
+    category: 'Open Genset',
+    location: 'Testing Bay',
+    statuses: [
+      { step: 'CNC', in: '2025-05-18T08:20:00', out: '2025-05-18T09:20:00' },
+      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-18T09:30:00', out: '' },
+    ],
+  },
+  {
+    key: 4,
+    batch_id: 'GEN-SET-2004',
+    item: 'MegaWatt Pro 100kVA',
+    count: 2,
+    variant: '100 kVA | Heavy-Duty',
+    category: 'Industrial',
+    location: 'Heavy Assembly Zone',
+    statuses: [
+      { step: 'CNC', in: '2025-05-19T09:10:00', out: '2025-05-19T10:10:00' },
+      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-19T10:20:00', out: '2025-05-19T11:00:00' },
+      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-19T11:15:00', out: '2025-05-19T12:40:00' },
+      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-19T13:00:00', out: '2025-05-19T14:20:00' },
+      { step: 'ELECTRICAL & PANEL DEPARTMENT', in: '2025-05-19T14:30:00', out: '' },
+    ],
+  },
+  {
+    key: 5,
+    batch_id: 'GEN-SET-2005',
+    item: 'TurboVolt Compact 20kVA',
+    count: 7,
+    variant: '20 kVA | Petrol',
+    category: 'Portable Genset',
+    location: 'Portable Unit Area',
+    statuses: [
+      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
+      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-20T11:40:00', out: '' },
+    ],
+  },
+];
 
 
   const getArrivalTime = (statuses = []) => {
@@ -148,9 +155,6 @@ const getStatusColor = step =>
       .pop()
       .format('DD-MM-YYYY hh:mm A'); // 12-hour format with AM/PM
   };
-
-
-
 
   const columns = [
     {
@@ -193,7 +197,6 @@ const getStatusColor = step =>
 
     },
 
-
     {
       title: 'variant',
       dataIndex: 'variant',
@@ -215,7 +218,7 @@ const getStatusColor = step =>
     },
     {
       title: 'Arrival Time',
-      dataIndex: 'statuses',          // we’ll use render instead of dataIndex itself
+      dataIndex: 'statuses',
       key: 'arrivalTime',
       render: (_, record) => getArrivalTime(record.statuses),
       sorter: (a, b) =>
@@ -248,39 +251,32 @@ const getStatusColor = step =>
       onFilter: (value, record) =>
         dayjs(getArrivalTime(record.statuses)).isSame(dayjs(value), 'day'),
     },
-    {
-      title: 'Location',
-      dataIndex: 'location',
-      key: 'location',
 
-      filters: [...new Set(data.map(item => item.location))].map(id => ({ text: String(id), value: id })),
-      onFilter: (value, record) => record.location === value,
+    {
+      title: 'Status',
+      dataIndex: 'statuses',
+      key: 'status',
+      filters: [...new Set(data.map(r => r.statuses.at(-1)?.step))]
+        .map(step => ({ text: step, value: step })),
+      onFilter: (value, record) => record.statuses.at(-1)?.step === value,
+      render: (statuses) => {
+        const latest = statuses.at(-1)?.step || '';
+        return (
+          <span
+            style={{
+              display: 'inline-block',
+              padding: '0 8px',
+              borderRadius: 4,
+              background: getStatusColor(latest),
+              color: '#fff',
+              fontWeight: 500,
+            }}
+          >
+            {latest}
+          </span>
+        );
+      },
     },
-   {
-  title: 'Status',
-  dataIndex: 'statuses',
-  key: 'status',
-  filters: [...new Set(data.map(r => r.statuses.at(-1)?.step))]
-           .map(step => ({ text: step, value: step })),
-  onFilter: (value, record) => record.statuses.at(-1)?.step === value,
-  render: (statuses) => {
-    const latest = statuses.at(-1)?.step || '';
-    return (
-      <span
-        style={{
-          display: 'inline-block',
-          padding: '0 8px',
-          borderRadius: 4,
-          background: getStatusColor(latest),
-          color: '#fff',
-          fontWeight: 500,
-        }}
-      >
-        {latest}
-      </span>
-    );
-  },
-},
 
 
     {
@@ -288,78 +284,98 @@ const getStatusColor = step =>
       key: 'action',
       fixed: 'right',
       render: (_, record) => (
-        <Button type="primary" >
-          Details
+        <Button style={{ fontSize: '', padding: '8px' }} type="primarym" >
+          <MdArrowCircleRight />
         </Button>
       ),
     },
   ];
 
 
-// --- last-step counts (unchanged) ---
-const lastSteps  = data.map(d => d.statuses.at(-1).step);
-const stepCounts = lastSteps.reduce((acc,s) => {
-  acc[s] = (acc[s]||0)+1; return acc;
-}, {});
+  // --- last-step counts (unchanged) ---
+  const lastSteps = data.map(d => d.statuses.at(-1).step);
+  const stepCounts = lastSteps.reduce((acc, s) => {
+    acc[s] = (acc[s] || 0) + 1; return acc;
+  }, {});
 
-// --- pie chart dataset ---
-const pieChartData = {
-  labels: Object.keys(stepCounts),
-  datasets: [
-    {
-      label: 'No of Batch',
-      data: Object.values(stepCounts),
-      backgroundColor: Object.keys(stepCounts).map(getStatusColor), // <- here
-    },
-  ],
-};
-const barData = {
-  labels: Object.keys(stepCounts),
-  datasets: [
-    {
-      label: 'Time Taken',
-      data: Object.values(stepCounts),
-      backgroundColor: Object.keys(stepCounts).map(getStatusColor), // <- here
-    },
-  ],
-};
-
-
-
-const options = {
-  plugins: {
-    legend: {
-      display: true, // This hides the label
-    },
-  },
-
-  scales: {
-    y: {
-      beginAtZero: true,
-      grid: {
-        drawOnChartArea: false, // removes background grid lines
+  // --- pie chart dataset ---
+  const pieChartData = {
+    labels: Object.keys(stepCounts),
+    datasets: [
+      {
+        label: 'No of Batch',
+        data: Object.values(stepCounts),
+        backgroundColor: Object.keys(stepCounts).map(getStatusColor), // <- here
       },
-       ticks: {
-        stepSize: 10, // Y-axis steps of 10
-        font: {
-          size: 10,
-        },
-      }
+    ],
+  };
+  const barData = {
+    labels: Object.keys(stepCounts),
+    datasets: [
+      {
+        label: 'Time Taken',
+        data: Object.values(stepCounts),
+        backgroundColor: Object.keys(stepCounts).map(getStatusColor), // <- here
+      },
+    ],
+  };
+
+
+
+  const options = {
+    plugins: {
+      legend: {
+        display: true, // This hides the label
+      },
     },
+
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          drawOnChartArea: false, // removes background grid lines
+        },
+        ticks: {
+          stepSize: 10, // Y-axis steps of 10
+          font: {
+            size: 10,
+          },
+        }
+      },
       x: {
-      grid: {
-        drawOnChartArea: false,
-      },
-       ticks: {
-        font: {
-          size: 5, // x-axis label font size
+        grid: {
+          drawOnChartArea: false,
         },
+         ticks: {
+        display: false,                  // ⬅️ turn off x-axis labels
       },
-    },
-  
-  },
-};
+       
+      },
 
+    },
+  };
+
+
+
+  const ExpandedRowContent = ({ record }) => {
+    // const { vendor, logistics, order_id, paymentInfo } = record;
+    const allSteps = ['CNC', 'POWDER COATING & TREATMENT PLANT', 'ENGINE & CANOPY ASSEMBLING', 'ROCKWOOL & FOAM FITTING DEPARTMENT', 'ELECTRICAL & PANEL DEPARTMENT', 'TESTING DEPARTMENT'];
+
+    return (
+      <div  className="custom-expanded-row" key={record.key}>
+        <h1 style={{ margin: '10px', color: 'green' }}>{record.batch_id}</h1>
+
+        <StepProgress  direction={'vertical'} allSteps={allSteps} record={record} />
+
+        {/* Order info */}
+
+
+
+
+
+      </div>
+    );
+  };
 
 
   return (
@@ -375,15 +391,15 @@ const options = {
 
         <div className="dashboard_componant">
           <div className="Targetheader"><h3>Batch Id :{id}</h3><span>{targetDataList.startDate}</span></div>
-          <div  className="tableAndGrapgdiv"> 
-            <ItemTable columns={columns} data={data} />
-        {/* <ProgressBarSection graphOption={graphOption} activeNav={activeNav} HandelNavClick={HandelNavClick} StockAnalasysOptions={StockAnalasysOptions} Option={Option} /> */}
+          <div className="tableAndGrapgdiv">
+            <ItemTable columns={columns} data={data} renderExpandedRow={(record) => <ExpandedRowContent record={record} />} />
+            {/* <ProgressBarSection graphOption={graphOption} activeNav={activeNav} HandelNavClick={HandelNavClick} StockAnalasysOptions={StockAnalasysOptions} Option={Option} /> */}
             <div className="workDetailsCharts">
 
-            <PieChart data={pieChartData}/>
-            <BarChart options={options} data={barData}/>
+              <PieChart data={pieChartData} />
+              <BarChart options={options} data={barData} />
             </div>
-            </div>
+          </div>
 
         </div>
       </div>

@@ -1,12 +1,58 @@
 import React from 'react'
 import { Flex, Progress, Typography } from 'antd';
 import "./storAnalatic.css"
-import {  MdOutlineArrowCircleUp } from 'react-icons/md';
-import { AiOutlineBarChart} from 'react-icons/ai';
+import { MdOutlineArrowCircleUp } from 'react-icons/md';
+import { AiOutlineBarChart } from 'react-icons/ai';
 
 import { Select } from 'antd';
+import PieChart from './PieChart';
 
 const { Text } = Typography;
+
+
+
+
+const stock = [
+  {
+    heading: "Total Stock",
+    percent: 70,
+    strokeColor: 'green'
+  },
+  // {
+  //   heading: "Available Stock",
+  //   percent: 50,
+  //   strokeColor: 'green'
+  // },
+  {
+    heading: "Yellow Stock",
+    percent: 70,
+    strokeColor: 'yellow'
+  },
+  {
+    heading: "Low Stock",
+    percent: 10,
+    strokeColor: 'red'
+  },
+
+  {
+    heading: "Ready Product",
+    percent: 10,
+    strokeColor: 'red'
+  },
+  // {
+  //   heading: "On Production",
+  //   percent: 10,
+  //   strokeColor: 'red'
+  // },
+  // {
+  //   heading: "Ready Unit",
+  //   percent: 100,
+  //   strokeColor: 'red',
+  //   unitCount: 30
+  // },
+
+]
+
 
 const StorAnalaticCard = () => {
   // const getStepColors = (steps, percent, fillColor = green[6], emptyColor = '') => {
@@ -17,52 +63,12 @@ const StorAnalaticCard = () => {
   // };
 
 
-  const stock = [
-    {
-      heading: "Total Stock",
-      percent: 70,
-      strokeColor: 'green'
-    },
-    {
-      heading: "Available Stock",
-      percent: 50,
-      strokeColor: 'green'
-    },
-    {
-      heading: "Yellow Stock",
-      percent: 70,
-      strokeColor: 'yellow'
-    },
-    {
-      heading: "Low Stock",
-      percent: 10,
-      strokeColor: 'red'
-    },
-    {
-      heading: "Ready Product",
-      percent: 10,
-      strokeColor: 'red'
-    },
-    {
-      heading: "On Production",
-      percent: 10,
-      strokeColor: 'red'
-    },
-    // {
-    //   heading: "Ready Unit",
-    //   percent: 100,
-    //   strokeColor: 'red',
-    //   unitCount: 30
-    // },
-
-  ]
-
 
 
   const steps = 30;
   return (
     <>
-
+<div className="cardAndpie">
       <div className='analaticCards'>
         {stock && stock.map((item, id) => (
           <div key={id} className='analaticard'>
@@ -72,7 +78,7 @@ const StorAnalaticCard = () => {
 
 
               </div>
-              <div className="dotedChart" style={{ display: 'flex'}}>
+              <div className="dotedChart" style={{ display: 'flex' }}>
                 <Flex gap="small" vertical  >
                   {/* {progressValues.map((item, index) => ( */}
                   <Progress
@@ -103,6 +109,12 @@ const StorAnalaticCard = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="pie">
+
+          <PieChart data={pieChartData} />
+      </div>
+
       </div>
     </>
   )
@@ -135,6 +147,40 @@ const Option =
     },
   ]
 
+
+const paistock = [{
+  heading: "Yellow Stock",
+  percent: 70,
+  strokeColor: 'yellow'
+},
+{
+  heading: "Low Stock",
+  percent: 10,
+  strokeColor: 'tomato'
+},]
+const usedPercent = paistock.reduce((sum, item) => sum + item.percent, 0);
+const remainingPercent = 100 - usedPercent;
+
+if (remainingPercent > 0) {
+  paistock.push({
+    heading: "Normal Stock",
+    percent: remainingPercent,
+    strokeColor: 'green' // neutral gray color
+  });
+}
+
+const pieChartData = {
+  labels: paistock.map(item => item.heading),
+  datasets: [
+    {
+      label: 'Stock Distribution',
+      data: paistock.map(item => item.percent),
+      backgroundColor: paistock.map(item => item.strokeColor),
+    }
+  ]
+};
+
+
 const StockCards = () => {
   return (
     <>
@@ -156,8 +202,17 @@ const StockCards = () => {
 
         </div>
 
+        {/* <div className=''> */}
 
-        <StorAnalaticCard />
+          <StorAnalaticCard />
+
+          {/* <PieChart data={pieChartData} /> */}
+        {/* </div> */}
+
+
+
+
+
       </div>
     </>
   )

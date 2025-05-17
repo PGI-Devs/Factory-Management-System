@@ -31,7 +31,7 @@ function getItem(label, key, icon, children) {
 const items = [
   getItem('Inventory Managenment', 'sub1', <PieChartOutlined />, [
 
-    getItem(<Link to="/details">Row Material</Link>, '2', <MdOutlineEnergySavingsLeaf />),
+    getItem(<Link to="/details/:id">Row Material</Link>, '2', <MdOutlineEnergySavingsLeaf />),
     getItem('Finished Goods', '3', <ProductOutlined />),
 
   ]),

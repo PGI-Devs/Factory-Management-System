@@ -15,7 +15,7 @@ import { MdBusiness } from 'react-icons/md'
 import { FaShippingFast } from 'react-icons/fa';
 
 
-const InvantoryAnalaticDashboard = () => {
+const InventoryPurchesUpdate = () => {
 
     const data = [
         {
@@ -47,7 +47,7 @@ const InvantoryAnalaticDashboard = () => {
             specification: 'Assembled',
             rejectQtn: 1,
             paymentInfo: {
-                totalAmount:12000,
+                totalAmount: 12000,
                 totalAdvance: 50000, // Example total advance payment
                 remainingBalance: 20000, // Example remaining balance
                 paymentDate: '2025-05-10', // Example payment date
@@ -83,7 +83,7 @@ const InvantoryAnalaticDashboard = () => {
             specification: 'In Progress',
             rejectQtn: 0,
             paymentInfo: {
-                totalAmount:12000,
+                totalAmount: 12000,
                 totalAdvance: 70000, // Example total advance payment
                 remainingBalance: 30000, // Example remaining balance
                 paymentDate: '2025-05-09', // Example payment date
@@ -120,7 +120,7 @@ const InvantoryAnalaticDashboard = () => {
             specification: 'Dispatched',
             rejectQtn: 0,
             paymentInfo: {
-                totalAmount:12000,
+                totalAmount: 12000,
                 totalAdvance: 60000, // Example total advance payment
                 remainingBalance: 25000, // Example remaining balance
                 paymentDate: '2025-05-07', // Example payment date
@@ -153,7 +153,7 @@ const InvantoryAnalaticDashboard = () => {
             specification: 'Received',
             rejectQtn: 2,
             paymentInfo: {
-                totalAmount:12000,
+                totalAmount: 12000,
                 totalAdvance: 80000, // Example total advance payment
                 remainingBalance: 40000, // Example remaining balance
                 paymentDate: '2025-05-06', // Example payment date
@@ -188,7 +188,7 @@ const InvantoryAnalaticDashboard = () => {
             specification: 'Pending Inspection',
             rejectQtn: 1,
             paymentInfo: {
-                totalAmount:12000,
+                totalAmount: 12000,
                 totalAdvance: 30000, // Example total advance payment
                 remainingBalance: 15000, // Example remaining balance
                 paymentDate: '2025-05-05', // Example payment date
@@ -223,7 +223,7 @@ const InvantoryAnalaticDashboard = () => {
             specification: 'Pending Inspection',
             rejectQtn: 1,
             paymentInfo: {
-                totalAmount:12000,
+                totalAmount: 12000,
                 totalAdvance: 30000, // Example total advance payment
                 remainingBalance: 15000, // Example remaining balance
                 paymentDate: '2025-05-05', // Example payment date
@@ -411,7 +411,7 @@ const InvantoryAnalaticDashboard = () => {
 
     const ExpandedRowContent = ({ record }) => {
         const { vendor, logistics, order_id, paymentInfo } = record;
-  const allSteps = ['order', 'delivered', 'quality check', 'quantity check', 'stored'];
+        const allSteps = ['order', 'delivered', 'quality check', 'quantity check', 'stored'];
 
         return (
             <div className="custom-expanded-row" key={record.key}>
@@ -493,4 +493,4 @@ const InvantoryAnalaticDashboard = () => {
     )
 }
 
-export default InvantoryAnalaticDashboard
+export default InventoryPurchesUpdate

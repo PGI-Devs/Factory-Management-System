@@ -20,6 +20,8 @@ const AdminStoreDetails = () => {
         <div className="storedetailscomponant">
         <DashboardNavBar  navOptions={navOptions}/>
 
+        
+
          <StockAnalasysSection/>
           <InventoryTable/>
 

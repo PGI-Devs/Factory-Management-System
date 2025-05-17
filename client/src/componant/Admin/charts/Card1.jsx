@@ -135,18 +135,18 @@ function CompactCard({ param, setExpanded }) {
 
 
 
-
+console.log(param)
 
     const navigate = useNavigate()
     const NagigateToDetails = () => {
-        navigate("./details")
+        navigate(`./details/${param.id}`)
     }
 
 
 
     const Png = param.png
     return (
-        <motion.div className="compactCard"
+        <motion.div  className="compactCard"
             style={
                 {
                     // background: param.color.backGround,

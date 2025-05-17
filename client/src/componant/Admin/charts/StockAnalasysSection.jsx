@@ -6,7 +6,7 @@ import { StockAnalasysOptions } from '../../Navdata/dashboardNavData'
 import { Button, Flex, Progress, Select } from 'antd';
 import { MdAdd, MdArrowCircleDown, } from 'react-icons/md'
 import ProgressBarSection from './ProgressBarSection'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 const StockAnalasysSection = () => {
 
 
@@ -180,8 +180,14 @@ const StockAnalasysSection = () => {
     }
     setTougle(false)
   }
+
+const {id} =useParams()
+
+  
   return (
     <>
+          <div className="Targetheader"><h3>Factory : {id}</h3></div>
+
       {tougle ? <Button className='tougleBtn' type='primary' onClick={TougleHandler}><MdAdd />  Expand</Button> : <Button type='primary' className='tougleBtn' onClick={TougleHandler}><MdArrowCircleDown /> Close</Button>}
 
 

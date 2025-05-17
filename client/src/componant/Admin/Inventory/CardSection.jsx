@@ -9,6 +9,7 @@ const CardSection = () => {
 
     const card1data=[
         {
+            id:1,
             title:"Factory 1",
             color:{
                 backGround: "linear-gradient(180deg, #ff6a00 0%, #ff8c00 100%)",
@@ -30,6 +31,7 @@ const CardSection = () => {
         },
 
         {
+            id:2,
             title:"Factory 2",
             color:{
                 backGround:"linear-gradient(180deg,#bb67ff 0%,#c484f3 100%)",
@@ -50,6 +52,7 @@ const CardSection = () => {
         },
 
         {
+            id:3,
             title:"Factory 3",
             color:{
                 backGround:"linear-gradient(180deg, #1de9b6 0%, #00e5ff 100%)",
@@ -84,6 +87,7 @@ const CardSection = () => {
           <div className="parentContainer">
 
             <Card1
+            id={card.id}
             title={card.title}
             color={card.color}
             barValue1={card.barValue1}

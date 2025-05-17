@@ -244,7 +244,7 @@ const InventoryTable = () => {
 
   return (
     <div className="storeDetailsTable">
-      <h3 className='h3Header'> <AiOutlineDatabase />Inventory Updates</h3>
+      <h3 className='h3Header'> <AiOutlineDatabase />Inventorys</h3>
       <ItemTable columns={columns} data={data} renderExpandedRow={(record) => (
         <div className="custom-expanded-row">
           <h1 style={{ margin: 0, color: 'green' }}>{record.name}</h1>
