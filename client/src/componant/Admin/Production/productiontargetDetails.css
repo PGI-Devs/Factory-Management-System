@@ -1,0 +1,31 @@
+.Targetheader{
+    background-color: rgb(6, 130, 80);
+    border-radius: 10px ;
+    padding: 1vmax;
+    margin: 1vmax;
+    color: aliceblue;
+}
+.tableAndGrapgdiv {
+display: flex;
+/* align-items: flex-start; */
+justify-content: space-around;
+gap: 10px;
+padding: 10px;
+/* width: 100%; */
+/* border: 1px solid black; */
+/* flex-wrap: wrap; */
+}
+.workDetailsCharts{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+
+@media (max-width: 700px) {
+
+    .tableAndGrapgdiv{
+        flex-direction: column;
+    }
+}

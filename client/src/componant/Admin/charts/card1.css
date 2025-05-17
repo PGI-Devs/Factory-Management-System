@@ -88,7 +88,8 @@
 }
 
 .CircularProgressbar-text {
-    fill: #fff !important;
+    fill: #e3e2e7 !important;
+    font-weight: 600 !important;
 }
 
 .CircularProgressbar-trail {

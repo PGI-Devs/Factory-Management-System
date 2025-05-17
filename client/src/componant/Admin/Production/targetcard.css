@@ -5,9 +5,12 @@ max-width: 330px;
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
+ 
     /* border: 2px solid green; */
 }
-
+.targetcardlink{
+  text-decoration: none;
+}
 /* Card Container */
 .completedDiv {
   display: flex;
@@ -39,16 +42,15 @@ max-width: 330px;
 .card-container {
      /* border: 2px solid green; */
      position: relative;
-    background-color: rgba(85, 115, 89, 0.5);
+    background-color: rgba(67, 114, 90, 0.5);
     backdrop-filter: blur(20px);
     max-width: 330px;
     height: 280px;
     min-height: 280px;
     border-radius: 1rem;
     padding: 2rem;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(31, 41, 55);
+   
+    /* border-color: rgb(31, 41, 55); */
     border-image: initial;
     margin: 10px;
 }
@@ -64,8 +66,8 @@ max-width: 330px;
 .top-left {
   top: 0;
   left: 0;
-  border-top: 2px solid #48ec63;
-  border-left: 2px solid #48ec63;
+  /* border-top: 2px solid #48ec63;
+  border-left: 2px solid #48ec63; */
   border-top-left-radius: 1rem;
 }
 .top-right {
@@ -78,15 +80,15 @@ max-width: 330px;
 .bottom-left {
   bottom: 0;
   left: 0;
-  border-bottom: 2px solid #08ea5f;
-  border-left: 2px solid #08ea5f;
+  /* border-bottom: 2px solid #08ea5f;
+  border-left: 2px solid #08ea5f; */
   border-bottom-left-radius: 1rem;
 }
 .bottom-right {
   bottom: 0;
   right: 0;
-  border-bottom: 2px solid #0e722e;
-  border-right: 2px solid #0e722e;
+  /* border-bottom: 2px solid #0e722e;
+  border-right: 2px solid #0e722e; */
   border-bottom-right-radius: 1rem;
 }
 
@@ -100,7 +102,7 @@ max-width: 330px;
   top: -3rem;
   left: 0;
   padding: 0.5rem 1.5rem;
-  background: linear-gradient(to right, #24603f, #08ea7d);
+  background: linear-gradient(to right, #213f30, #032d19);
   border-radius: 9999px;
   font-size: 0.875rem;
   color: white;
@@ -112,7 +114,7 @@ max-width: 330px;
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: white;
+  color: rgb(10, 57, 31);
 }
 
 .card-subtitle {
@@ -151,7 +153,7 @@ gap: 10px;
   /* border: 2px solid black; */
   /* margin-bottom: 2rem; */
   color: #d1d5db;
-  height: auto;
+  height: 100px;
   width: auto;
 }
 
@@ -159,7 +161,7 @@ gap: 10px;
   padding: 0.5rem 1rem;
   border-radius: 9999px;
   background: linear-gradient(to right, rgba(236, 72, 153, 0.1), rgba(234, 179, 8, 0.1));
-  border: 1px solid #374151;
+  /* border: 1px solid #374151; */
   cursor: pointer;
   transition: transform 0.3s, border-color 0.3s, background 0.3s;
 }

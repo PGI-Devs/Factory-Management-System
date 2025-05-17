@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.25.1",
     "chart.js": "^4.4.9",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "framer-motion": "^12.10.5",
     "install": "^0.13.0",
     "npm": "^10.9.2",

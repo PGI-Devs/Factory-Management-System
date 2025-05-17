@@ -1,7 +1,7 @@
 .targetSection{
 /* border: 1px solid black; */
 display: flex;
-justify-content: center;
+justify-content: space-around;
 align-items: center;
 /* width: 99vw; */
 margin: auto;
@@ -10,4 +10,5 @@ height: auto;
 gap: 10px;
 flex-wrap: wrap;
 padding: 10px;
+text-decoration: none;
 }
