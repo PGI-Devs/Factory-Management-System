@@ -1,0 +1,19 @@
+@media print {
+  /* Hide everything */
+  body * {
+    display: none !important;
+  }
+
+  /* Show only the printable-table and its children */
+  #printable-table, #printable-table * {
+    display: block !important;
+  }
+
+  /* Position printable table top-left, full width */
+  #printable-table {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}

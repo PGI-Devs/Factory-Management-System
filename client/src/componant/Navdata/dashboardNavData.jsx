@@ -1,4 +1,4 @@
-import { AiOutlineClockCircle, AiOutlineDashboard, AiOutlineDatabase, AiOutlineDeliveredProcedure, AiOutlineMail, AiOutlinePieChart } from 'react-icons/ai'
+import { AiOutlineFileExcel,AiOutlineClockCircle, AiOutlineDashboard, AiOutlineDatabase, AiOutlineDeliveredProcedure, AiOutlineMail, AiOutlinePieChart } from 'react-icons/ai'
 
    export const navOptions = [
   
@@ -21,14 +21,22 @@ import { AiOutlineClockCircle, AiOutlineDashboard, AiOutlineDatabase, AiOutlineD
         },
         {
             nav: 'History',
+            link: '/details/history',
             icon: <AiOutlineClockCircle />
         },
         {
+            nav: 'Excel',
+            link: '/details/excel',
+            icon: <AiOutlineFileExcel />
+        },
+        {
             nav: 'Request',
+            link:'/details/roleselector',
             icon: <AiOutlineMail />
         },
         {
             nav: 'Ready',
+              link:'/details/ready',
             icon: <AiOutlineDeliveredProcedure />
         },
 

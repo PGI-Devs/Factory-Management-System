@@ -1,0 +1,66 @@
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f5fff5;
+}
+
+h2 {
+  color: #2e7d32;
+  margin-bottom: 1.5rem;
+}
+
+.qc-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 0 10px #ddd;
+}
+
+.qc-table th, .qc-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.status {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.status.pending {
+  color: #ffa000;
+}
+.status.approved {
+  color: #388e3c;
+}
+.status.rejected {
+  color: #d32f2f;
+}
+
+.approve-btn, .reject-btn {
+  padding: 0.4rem 0.8rem;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.approve-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.reject-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.approve-btn:disabled,
+.reject-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

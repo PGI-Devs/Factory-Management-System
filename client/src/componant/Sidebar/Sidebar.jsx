@@ -43,7 +43,7 @@ const items = [
 
     getItem('Assembly line Status', '5' , <CheckCircleOutlined/>),
     getItem('Work Order', '6' , <OrderedListOutlined/>),
-    getItem('Bill Of Material', '7', <BilibiliOutlined/>),
+   getItem(<Link to="/details/billofmaterials">Bill Of Materials</Link>, '7', <BilibiliOutlined/>),
   ]),
   getItem('Team', 'sub3', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
   getItem('Files', '9', <FileOutlined />),
