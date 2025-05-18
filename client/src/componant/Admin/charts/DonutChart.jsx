@@ -26,16 +26,22 @@ const options = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
-    legend: {                      // <-- legend (labels) settings
-      display: false,              // hide it completely
+    legend: { 
+          labels: {
+        font: {
+          size: 9
+          
+        }
+      }        ,
+      display: true,           
       position: 'top',
     },
     title: {
-      display: true,
+      display: false,
       text: title || 'Chart.js Doughnut Chart',
     },
-    tooltip: {                     // optional: keep tooltips, or hide them too
-      enabled: true,               // ← set to false if you don’t want hover info
+    tooltip: {                 
+      enabled: true,  
     },
   },
 };

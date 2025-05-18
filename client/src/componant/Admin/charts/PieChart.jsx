@@ -9,28 +9,35 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-// const data = {
-//   labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
-//   datasets: [
-//     {
-//       label: 'Dataset 1',
-//       data: [20, 30, 10, 25, 15], // static values
-//       backgroundColor: [
-//         '#FF6384', // Red
-//         '#FF9F40', // Orange
-//         '#FFCD56', // Yellow
-//         '#4BC0C0', // Green
-//         '#36A2EB', // Blue
-//       ],
-//     },
-//   ],
-// };
+
 
 const PieChart = ({data,options}) => {
+
+  const pieChartOptions = {
+  plugins: {
+    legend: {
+      labels: {
+        font: {
+          size: 9 // Change legend label font size
+          
+        }
+      }
+    },
+    tooltip: {
+      bodyFont: {
+        size: 10 // Change tooltip label font size
+      },
+      titleFont: {
+        size: 16 // Change tooltip title font size
+      }
+    }
+  }
+};
+
   return (
     <>
       {/* <h3 style={{ textAlign: "center" }}>Static Pie Chart</h3> */}
-      <Pie data={data}  options={options}/>
+      <Pie data={data}  options={pieChartOptions}/>
     </>
   );
 };

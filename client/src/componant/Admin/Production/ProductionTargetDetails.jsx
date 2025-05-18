@@ -493,13 +493,13 @@ const colors = [
              <div>
               <PieChart data={pieChartData} />
               </div> 
-             <div>
-              
-              <BarChart options={options} data={barData} />
-              </div> 
              <div  >
               
               <DoughnutChart colors={colors} labels={labels} values={values} title="Batch GEN-SET-2002" />
+              </div> 
+             <div>
+              
+              <BarChart options={options} data={barData} />
               </div> 
             </div>
           </div>

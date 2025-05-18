@@ -62,58 +62,69 @@ const StorAnalaticCard = () => {
   //   );
   // };
 
+  const pieChartData = {
+    labels: paistock.map(item => item.heading),
+    datasets: [
+      {
+        label: 'Stock Distribution',
+        data: paistock.map(item => item.percent),
+        backgroundColor: paistock.map(item => item.strokeColor),
+      }
+    ]
+  };
+
 
 
 
   const steps = 30;
   return (
     <>
-<div className="cardAndpie">
-      <div className='analaticCards'>
-        {stock && stock.map((item, id) => (
-          <div key={id} className='analaticard'>
-            <div className='analaticCardleft'>
-              <div className="analaticHeader">
-                <div><Text lavel={3} style={{ padding: '5px', color: 'black' }} >{item.heading}</Text> </div>
+      <div className="cardAndpie">
+        <div className='analaticCards'>
+          {stock && stock.map((item, id) => (
+            <div key={id} className='analaticard'>
+              <div className='analaticCardleft'>
+                <div className="analaticHeader">
+                  <div><Text lavel={3} style={{ padding: '5px', color: 'black' }} >{item.heading}</Text> </div>
 
 
-              </div>
-              <div className="dotedChart" style={{ display: 'flex' }}>
-                <Flex gap="small" vertical  >
-                  {/* {progressValues.map((item, index) => ( */}
-                  <Progress
-                    key={id}
-                    trailColor="lightgray"
+                </div>
+                <div className="dotedChart" style={{ display: 'flex' }}>
+                  <Flex gap="small" vertical  >
+                    {/* {progressValues.map((item, index) => ( */}
+                    <Progress
+                      key={id}
+                      trailColor="lightgray"
 
-                    percent={item.percent}
-                    steps={steps}
-                    strokeWidth={12}
-                    strokeColor={item.strokeColor}
-                    type="dashboard"
-                    showInfo
-                    gapDegree={180}
-                    gapPosition="bottom"
-                    style={{ transform: 'rotate(360deg)' }}
-                  />
-                  {/* ))} */}
-                </Flex>
-                {/* <div>
+                      percent={item.percent}
+                      steps={steps}
+                      strokeWidth={12}
+                      strokeColor={item.strokeColor}
+                      type="dashboard"
+                      showInfo
+                      gapDegree={180}
+                      gapPosition="bottom"
+                      style={{ transform: 'rotate(360deg)' }}
+                    />
+                    {/* ))} */}
+                  </Flex>
+                  {/* <div>
               <h3>{item.unitCount}</h3>
 
             </div> */}
+                </div>
+              </div>
+              <div className='analaticCardRight'>
+                <Text lavel={8}>Total Iteams</Text>
+                <span>40 <span id='percenbox'><MdOutlineArrowCircleUp />12% </span> </span>
               </div>
             </div>
-            <div className='analaticCardRight'>
-              <Text lavel={8}>Total Iteams</Text>
-              <span>40 <span id='percenbox'><MdOutlineArrowCircleUp />12% </span> </span>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="pie">
+          ))}
+        </div>
+        <div className="piechart ">
 
           <PieChart data={pieChartData} />
-      </div>
+        </div>
 
       </div>
     </>
@@ -169,17 +180,6 @@ if (remainingPercent > 0) {
   });
 }
 
-const pieChartData = {
-  labels: paistock.map(item => item.heading),
-  datasets: [
-    {
-      label: 'Stock Distribution',
-      data: paistock.map(item => item.percent),
-      backgroundColor: paistock.map(item => item.strokeColor),
-    }
-  ]
-};
-
 
 const StockCards = () => {
   return (
@@ -204,9 +204,9 @@ const StockCards = () => {
 
         {/* <div className=''> */}
 
-          <StorAnalaticCard />
+        <StorAnalaticCard />
 
-          {/* <PieChart data={pieChartData} /> */}
+        {/* <PieChart data={pieChartData} /> */}
         {/* </div> */}
 
 
