@@ -19,7 +19,8 @@ const data = {
     {
       label: 'Count',
       data: [12, 19, 3, 5,14,67],
-      backgroundColor: 'rgba(220, 89, 89, 0.6)',
+      // backgroundColor: '#a78bfa',
+      backgroundColor: 'rgba(255, 0, 0, 0.6)',
       
       
       // backgroundColor: 'transparent',

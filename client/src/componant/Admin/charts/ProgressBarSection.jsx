@@ -43,7 +43,8 @@ const ProgressBarSection = ({activeNav,HandelNavClick,StockAnalasysOptions,Optio
                 <div key={item.name}>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
 
-                    <span> {item.heading}</span><span>{item.count}</span>
+                    <span> {item.heading}</span>
+                    {/* <span>{item.count}</span> */}
                   </div>
                   <Progress
                     className='custom-progress'

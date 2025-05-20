@@ -47,6 +47,14 @@
     align-items: center;
     justify-content: space-between;
 }
+.analaticComponantHeader .ant-select-selector{
+     border: none !important; 
+  border-bottom: 0.1px solid #b8b3b3 !important;
+  border-radius: 0 !important; 
+  color: #434040 !important; 
+  background-color: transparent !important;
+  box-shadow: none !important; 
+}
 
 .h3Header {
     display: flex;

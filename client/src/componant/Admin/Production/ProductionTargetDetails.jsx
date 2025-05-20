@@ -2,15 +2,15 @@ import React from 'react'
 import Sidebar from '../../Sidebar/Sidebar'
 import DashboardNavBar from '../DashboardNavBar/DashboardNavBar'
 import { ProductionnavOptions } from '../../Navdata/dashboardNavData'
-import {  useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import "./productiontargetDetails.css"
 import ItemTable from '../../Table/Table'
-import { Button,  DatePicker, Input } from 'antd'
+import { Button, DatePicker, Input } from 'antd'
 import { AiOutlineSearch } from 'react-icons/ai'
 import dayjs from 'dayjs';
 import PieChart from '../charts/PieChart'
 import BarChart from './BarChart'
-import { MdArrowCircleRight,   } from 'react-icons/md'
+import { MdArrowCircleRight, } from 'react-icons/md'
 import StepProgress from '../charts/StepProgress'
 import DoughnutChart from '../charts/DonutChart'
 
@@ -36,187 +36,187 @@ const ProductionTargetDetails = () => {
 
 
 
- const STATUS_COLORS = {
-  'CNC': '#FF6384', // red / tomato
-  'POWDER COATING & TREATMENT PLANT': '#FFCD56', // yellow
-  'ENGINE & CANOPY ASSEMBLING': '#FF9F40', // orange
-  'ROCKWOOL & FOAM FITTING DEPARTMENT': '#4BC0C0', // teal
-  'ELECTRICAL & PANEL DEPARTMENT': '#36A2EB', // blue
-  'TESTING DEPARTMENT': '#4CAF50', // green
-};
+  const STATUS_COLORS = {
+    'CNC': '#FF6384', // red / tomato
+    'POWDER COATING & TREATMENT PLANT': '#FFCD56', // yellow
+    'ENGINE & CANOPY ASSEMBLING': '#FF9F40', // orange
+    'ROCKWOOL & FOAM FITTING DEPARTMENT': '#a78bfa', // teal
+    'ELECTRICAL & PANEL DEPARTMENT': '#36A2EB', // blue
+    'TESTING DEPARTMENT': '#4CAF50', // green
+  };
 
 
   const getStatusColor = step =>
     STATUS_COLORS[step?.toUpperCase()] || '#888';
 
 
-const data = [
-  {
-    key: 0,
-    batch_id: 'GEN-SET-2000',
-    item: 'PowerGen Max 15kVA',
-    count: 5,
-    variant: '35 kVA -III',
-    category: 'Silent Genset',
-    location: 'Assembly Line A',
-    statuses: [
-      { step: 'CNC', in: '2025-05-15T08:00:00', out: '2025-05-15T09:00:00' },
-      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-15T09:15:00', out: '2025-05-15T10:30:00' },
-      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-15T11:00:00', out: '2025-05-15T12:30:00' },
-      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-15T13:00:00', out: '' },
-    ],
-  },
-  {
-    key: 1,
-    batch_id: 'GEN-SET-2001',
-    item: 'VoltPro Eco 25kVA',
-    count: 3,
-    variant: '35 kVA -II',
-    category: 'Open Genset',
-    location: 'Assembly Line B',
-    statuses: [
-      { step: 'CNC', in: '2025-05-16T09:00:00', out: '2025-05-16T10:00:00' },
-      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-16T10:15:00', out: '2025-05-16T11:45:00' },
-      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-16T12:10:00', out: '2025-05-16T13:10:00' },
-      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-16T13:30:00', out: '' },
-    ],
-  },
-  {
-    key: 2,
-    batch_id: 'GEN-SET-2002',
-    item: 'GenPrime Silent 62.5kVA',
-    count: 4,
-    variant: '35 kVA -I',
-    category: 'Silent Genset',
-    location: 'Silent Zone',
-    statuses: [
-      { step: 'CNC', in: '2025-05-17T07:45:00', out: '2025-05-17T08:45:00' },
-      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-17T09:00:00', out: '2025-05-17T10:30:00' },
-      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-17T10:45:00', out: '2025-05-17T11:15:00' },
-      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-17T11:30:00', out: '2025-05-17T13:00:00' },
-      { step: 'ELECTRICAL & PANEL DEPARTMENT', in: '2025-05-17T13:15:00', out: '2025-05-17T14:40:00' },
-      { step: 'TESTING DEPARTMENT', in: '2025-05-17T14:50:00', out: '' },
-    ],
-  },
-  {
-    key: 3,
-    batch_id: 'GEN-SET-2003',
-    item: 'EcoPower Basic 10kVA',
-    count: 6,
-    variant: '35 kVA -III',
-    category: 'Open Genset',
-    location: 'Testing Bay',
-    statuses: [
-      { step: 'CNC', in: '2025-05-18T08:20:00', out: '2025-05-18T09:20:00' },
-      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-18T09:30:00', out: '' },
-    ],
-  },
-  {
-    key: 4,
-    batch_id: 'GEN-SET-2004',
-    item: 'MegaWatt Pro 100kVA',
-    count: 2,
-    variant: '35 kVA -II',
-    category: 'Industrial',
-    location: 'Heavy Assembly Zone',
-    statuses: [
-      { step: 'CNC', in: '2025-05-19T09:10:00', out: '2025-05-19T10:10:00' },
-      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-19T10:20:00', out: '2025-05-19T11:00:00' },
-      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-19T11:15:00', out: '2025-05-19T12:40:00' },
-      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-19T13:00:00', out: '2025-05-19T14:20:00' },
-      { step: 'ELECTRICAL & PANEL DEPARTMENT', in: '2025-05-19T14:30:00', out: '' },
-    ],
-  },
-  {
-    key: 5,
-    batch_id: 'GEN-SET-2005',
-    item: 'TurboVolt Compact 20kVA',
-    count: 7,
-    variant: '35 kVA -III',
-    category: 'Portable Genset',
-    location: 'Portable Unit Area',
-    statuses: [
-      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
-      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
-      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
-    ],
-  },
-  {
-    key: 6,
-    batch_id: 'GEN-SET-2005',
-    item: 'TurboVolt Compact 20kVA',
-    count: 7,
-    variant: '35 kVA -II',
-    category: 'Portable Genset',
-    location: 'Portable Unit Area',
-    statuses: [
-      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
-      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
-      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
-      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-20T11:40:00', out: '' },
-    ],
-  },
-  {
-    key: 7,
-    batch_id: 'GEN-SET-2005',
-    item: 'TurboVolt Compact 20kVA',
-    count: 7,
-    variant: '35 kVA -III',
-    category: 'Portable Genset',
-    location: 'Portable Unit Area',
-    statuses: [
-      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
-      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
-      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
-      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-20T11:40:00', out: '' },
-    ],
-  },
-  {
-    key: 8,
-    batch_id: 'GEN-SET-2005',
-    item: 'TurboVolt Compact 20kVA',
-    count: 7,
-    variant: '35 kVA -II',
-    category: 'Portable Genset',
-    location: 'Portable Unit Area',
-    statuses: [
-      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
-      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
-      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
-    ],
-  },
-  {
-    key: 9,
-    batch_id: 'GEN-SET-2005',
-    item: 'TurboVolt Compact 20kVA',
-    count: 7,
-    variant: '35 kVA -I',
-    category: 'Portable Genset',
-    location: 'Portable Unit Area',
-    statuses: [
-      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
-      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
-      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
-      { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-20T11:40:00', out: '' },
-    ],
-  },
-  {
-    key: 10,
-    batch_id: 'GEN-SET-2005',
-    item: 'TurboVolt Compact 20kVA',
-    count: 7,
-    variant: '35 kVA -III',
-    category: 'Portable Genset',
-    location: 'Portable Unit Area',
-    statuses: [
-      { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
-      { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
-      { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '' },
-    ],
-  },
- 
- 
-];
+  const data = [
+    {
+      key: 0,
+      batch_id: 'GEN-SET-2000',
+      item: 'PowerGen Max 15kVA',
+      count: 5,
+      variant: '35 kVA -III',
+      category: 'Silent Genset',
+      location: 'Assembly Line A',
+      statuses: [
+        { step: 'CNC', in: '2025-05-15T08:00:00', out: '2025-05-15T09:00:00' },
+        { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-15T09:15:00', out: '2025-05-15T10:30:00' },
+        { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-15T11:00:00', out: '2025-05-15T12:30:00' },
+        { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-15T13:00:00', out: '' },
+      ],
+    },
+    {
+      key: 1,
+      batch_id: 'GEN-SET-2001',
+      item: 'VoltPro Eco 25kVA',
+      count: 3,
+      variant: '35 kVA -II',
+      category: 'Open Genset',
+      location: 'Assembly Line B',
+      statuses: [
+        { step: 'CNC', in: '2025-05-16T09:00:00', out: '2025-05-16T10:00:00' },
+        { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-16T10:15:00', out: '2025-05-16T11:45:00' },
+        { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-16T12:10:00', out: '2025-05-16T13:10:00' },
+        { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-16T13:30:00', out: '' },
+      ],
+    },
+    {
+      key: 2,
+      batch_id: 'GEN-SET-2002',
+      item: 'GenPrime Silent 62.5kVA',
+      count: 4,
+      variant: '35 kVA -I',
+      category: 'Silent Genset',
+      location: 'Silent Zone',
+      statuses: [
+        { step: 'CNC', in: '2025-05-17T07:45:00', out: '2025-05-17T08:45:00' },
+        { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-17T09:00:00', out: '2025-05-17T10:30:00' },
+        { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-17T10:45:00', out: '2025-05-17T11:15:00' },
+        { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-17T11:30:00', out: '2025-05-17T13:00:00' },
+        { step: 'ELECTRICAL & PANEL DEPARTMENT', in: '2025-05-17T13:15:00', out: '2025-05-17T14:40:00' },
+        { step: 'TESTING DEPARTMENT', in: '2025-05-17T14:50:00', out: '' },
+      ],
+    },
+    {
+      key: 3,
+      batch_id: 'GEN-SET-2003',
+      item: 'EcoPower Basic 10kVA',
+      count: 6,
+      variant: '35 kVA -III',
+      category: 'Open Genset',
+      location: 'Testing Bay',
+      statuses: [
+        { step: 'CNC', in: '2025-05-18T08:20:00', out: '2025-05-18T09:20:00' },
+        { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-18T09:30:00', out: '' },
+      ],
+    },
+    {
+      key: 4,
+      batch_id: 'GEN-SET-2004',
+      item: 'MegaWatt Pro 100kVA',
+      count: 2,
+      variant: '35 kVA -II',
+      category: 'Industrial',
+      location: 'Heavy Assembly Zone',
+      statuses: [
+        { step: 'CNC', in: '2025-05-19T09:10:00', out: '2025-05-19T10:10:00' },
+        { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-19T10:20:00', out: '2025-05-19T11:00:00' },
+        { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-19T11:15:00', out: '2025-05-19T12:40:00' },
+        { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-19T13:00:00', out: '2025-05-19T14:20:00' },
+        { step: 'ELECTRICAL & PANEL DEPARTMENT', in: '2025-05-19T14:30:00', out: '' },
+      ],
+    },
+    {
+      key: 5,
+      batch_id: 'GEN-SET-2005',
+      item: 'TurboVolt Compact 20kVA',
+      count: 7,
+      variant: '35 kVA -III',
+      category: 'Portable Genset',
+      location: 'Portable Unit Area',
+      statuses: [
+        { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+        { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+        { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
+      ],
+    },
+    {
+      key: 6,
+      batch_id: 'GEN-SET-2005',
+      item: 'TurboVolt Compact 20kVA',
+      count: 7,
+      variant: '35 kVA -II',
+      category: 'Portable Genset',
+      location: 'Portable Unit Area',
+      statuses: [
+        { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+        { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+        { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
+        { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-20T11:40:00', out: '' },
+      ],
+    },
+    {
+      key: 7,
+      batch_id: 'GEN-SET-2005',
+      item: 'TurboVolt Compact 20kVA',
+      count: 7,
+      variant: '35 kVA -III',
+      category: 'Portable Genset',
+      location: 'Portable Unit Area',
+      statuses: [
+        { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+        { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+        { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
+        { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-20T11:40:00', out: '' },
+      ],
+    },
+    {
+      key: 8,
+      batch_id: 'GEN-SET-2005',
+      item: 'TurboVolt Compact 20kVA',
+      count: 7,
+      variant: '35 kVA -II',
+      category: 'Portable Genset',
+      location: 'Portable Unit Area',
+      statuses: [
+        { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+        { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+        { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
+      ],
+    },
+    {
+      key: 9,
+      batch_id: 'GEN-SET-2005',
+      item: 'TurboVolt Compact 20kVA',
+      count: 7,
+      variant: '35 kVA -I',
+      category: 'Portable Genset',
+      location: 'Portable Unit Area',
+      statuses: [
+        { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+        { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+        { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '2025-05-20T11:25:00' },
+        { step: 'ROCKWOOL & FOAM FITTING DEPARTMENT', in: '2025-05-20T11:40:00', out: '' },
+      ],
+    },
+    {
+      key: 10,
+      batch_id: 'GEN-SET-2005',
+      item: 'TurboVolt Compact 20kVA',
+      count: 7,
+      variant: '35 kVA -III',
+      category: 'Portable Genset',
+      location: 'Portable Unit Area',
+      statuses: [
+        { step: 'CNC', in: '2025-05-20T08:05:00', out: '2025-05-20T09:00:00' },
+        { step: 'POWDER COATING & TREATMENT PLANT', in: '2025-05-20T09:15:00', out: '2025-05-20T09:50:00' },
+        { step: 'ENGINE & CANOPY ASSEMBLING', in: '2025-05-20T10:00:00', out: '' },
+      ],
+    },
+
+
+  ];
 
 
   const getArrivalTime = (statuses = []) => {
@@ -369,8 +369,28 @@ const data = [
   const stepCounts = lastSteps.reduce((acc, s) => {
     acc[s] = (acc[s] || 0) + 1; return acc;
   }, {});
+//  const labels = Object.keys(variantCountMap);    
+//   const values = Object.values(variantCountMap);  
 
-  // --- pie chart dataset ---
+  const variantCountMap = data.reduce((acc, item) => {
+    acc[item.variant] = (acc[item.variant] || 0) + item.count;
+    return acc;
+  }, {});
+
+ 
+
+
+
+  const dounghtChartData = {
+    labels: Object.keys(variantCountMap)  ,
+    datasets: [
+      {
+        label: 'No of Batch',
+        data: Object.values(variantCountMap),
+        backgroundColor: Object.keys(stepCounts).map(getStatusColor), // <- here
+      },
+    ],
+  };
   const pieChartData = {
     labels: Object.keys(stepCounts),
     datasets: [
@@ -418,10 +438,10 @@ const data = [
         grid: {
           drawOnChartArea: false,
         },
-         ticks: {
-        display: false,                  // ⬅️ turn off x-axis labels
-      },
-       
+        ticks: {
+          display: false,                  // ⬅️ turn off x-axis labels
+        },
+
       },
 
     },
@@ -430,45 +450,17 @@ const data = [
 
 
   const ExpandedRowContent = ({ record }) => {
-    // const { vendor, logistics, order_id, paymentInfo } = record;
     const allSteps = ['CNC', 'POWDER COATING & TREATMENT PLANT', 'ENGINE & CANOPY ASSEMBLING', 'ROCKWOOL & FOAM FITTING DEPARTMENT', 'ELECTRICAL & PANEL DEPARTMENT', 'TESTING DEPARTMENT'];
 
     return (
-      <div  className="custom-expanded-row" key={record.key}>
+      <div className="custom-expanded-row" key={record.key}>
         <h1 style={{ margin: '10px', color: 'green' }}>{record.batch_id}</h1>
 
-        <StepProgress  direction={'vertical'} allSteps={allSteps} record={record} />
-
-        {/* Order info */}
-
-
-
-
+        <StepProgress direction={'vertical'} allSteps={allSteps} record={record} />
 
       </div>
     );
   };
-
-
-const variantCountMap = data.reduce((acc, item) => {
-  acc[item.variant] = (acc[item.variant] || 0) + item.count;
-  return acc;
-}, {});
-
-// ---- 2. EXTRACT UNIQUE LABELS + TOTALS -------------------------------------------
-const labels = Object.keys(variantCountMap);     // ['15 kVA | Diesel', '25 kVA | Diesel', '62.5 kVA | Silent', ...]
-const values = Object.values(variantCountMap);   // [5, 3, 4, 6, 2, 7]  ← counts are now summed
-
-
-const colors = [
-  'rgba(54, 162, 235, 0.7)',
-  'rgba(255, 99, 132, 0.7)',
-  'rgba(255, 206, 86, 0.7)',
-  'rgba(75, 192, 192, 0.7)',
-  'rgba(153, 102, 255, 0.7)',
-  'rgba(255, 159, 64, 0.7)',
-  // add more if you have more labels
-];
 
 
 
@@ -478,7 +470,6 @@ const colors = [
       <Sidebar />
 
 
-      {/* <div className='navlayout'> */}
 
       <div className="storedetailscomponant">
         <DashboardNavBar navOptions={ProductionnavOptions} />
@@ -487,20 +478,20 @@ const colors = [
           <div className="Targetheader"><h3>Batch Id :{id}</h3><span>{targetDataList.startDate}</span></div>
           <div className="tableAndGrapgdiv">
             <ItemTable columns={columns} data={data} renderExpandedRow={(record) => <ExpandedRowContent record={record} />} />
-            {/* <ProgressBarSection graphOption={graphOption} activeNav={activeNav} HandelNavClick={HandelNavClick} StockAnalasysOptions={StockAnalasysOptions} Option={Option} /> */}
             <div className="workDetailsCharts">
 
-             <div>
-              <PieChart data={pieChartData} />
-              </div> 
-             <div  >
-              
-              <DoughnutChart colors={colors} labels={labels} values={values} title="Batch GEN-SET-2002" />
-              </div> 
-             <div>
-              
-              <BarChart options={options} data={barData} />
-              </div> 
+              <div>
+                <PieChart data={pieChartData} />
+              </div>
+              <div  >
+
+                <DoughnutChart  doughnutdata={dounghtChartData} title="Batch GEN-SET-2002" />
+                {/* <DoughnutChart  labels={labels} values={values} title="Batch GEN-SET-2002" /> */}
+              </div>
+              <div>
+
+                <BarChart options={options} data={barData} />
+              </div>
             </div>
           </div>
 

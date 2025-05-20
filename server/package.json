@@ -1,36 +1,27 @@
 {
-  "name": "server",
+  "name": "api-folder",
   "version": "1.0.0",
-   "type": "module",       
-
-  
   "main": "index.js",
-
+ 
   "scripts": {
-   
-     "dev": "nodemon src/index.js",
-  "start": "node src/index.js",
-  "migrate": "sequelize-cli db:migrate",
-  "seed": "sequelize-cli db:seed:all",
-  "test": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "module",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mysql2": "^3.14.1",
-    "sequelize": "^6.37.7"
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.14.1"
   },
   "devDependencies": {
-    "eslint": "^9.27.0",
-    "jest": "^29.7.0",
-    "nodemon": "^3.1.10",
-    "sequelize-cli": "^6.6.3",
-    "supertest": "^7.1.1"
+    "nodemon": "^3.1.10"
   }
-
-
 }

@@ -8,6 +8,13 @@
     align-items: flex-start;
     gap: 5px;
 }
+@media (max-width: 700px) {
+    .layoutContainer{
+        gap: 0;
+    
+    }
+
+}
 /* .navlayout{
     display: flex;
     justify-content: center;

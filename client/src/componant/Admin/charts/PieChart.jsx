@@ -11,24 +11,32 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 
-const PieChart = ({data,options}) => {
+const PieChart = ({data,title}) => {
 
+
+  
   const pieChartOptions = {
   plugins: {
     legend: {
+       position: 'bottom',
       labels: {
         font: {
-          size: 9 // Change legend label font size
+          size: 9
           
         }
+        
       }
     },
+       title: {
+        display: !!title,
+        text: title,
+      },
     tooltip: {
       bodyFont: {
-        size: 10 // Change tooltip label font size
+        size: 10 ,
       },
       titleFont: {
-        size: 16 // Change tooltip title font size
+        size: 16 
       }
     }
   }

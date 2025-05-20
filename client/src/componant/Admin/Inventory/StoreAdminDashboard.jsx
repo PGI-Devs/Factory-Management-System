@@ -5,17 +5,17 @@ import Sidebar from '../../Sidebar/Sidebar'
 
 const StoreAdminDashboard = () => {
   return (
- <div className='layoutContainer'>
-    <Sidebar/>
-   <div className="dashboard_componant">
+    <div className='layoutContainer'>
+      <Sidebar />
+      <div className="dashboard_componant">
 
-    
-        <CardSection/>
 
-   </div>
-   
-   
-   </div>
+        <CardSection />
+
+      </div>
+
+
+    </div>
   )
 }
 

@@ -26,41 +26,50 @@ const stock = [
   {
     heading: "Yellow Stock",
     percent: 70,
-    strokeColor: 'yellow'
+    strokeColor: '#faad14'
   },
   {
     heading: "Low Stock",
     percent: 10,
-    strokeColor: 'red'
+    strokeColor: '#ff4d4f'
   },
 
   {
     heading: "Ready Product",
     percent: 10,
-    strokeColor: 'red'
+    strokeColor: '#52c41a'
   },
-  // {
-  //   heading: "On Production",
-  //   percent: 10,
-  //   strokeColor: 'red'
-  // },
-  // {
-  //   heading: "Ready Unit",
-  //   percent: 100,
-  //   strokeColor: 'red',
-  //   unitCount: 30
-  // },
 
 ]
 
 
 const StorAnalaticCard = () => {
-  // const getStepColors = (steps, percent, fillColor = green[6], emptyColor = '') => {
-  //   const filledSteps = Math.round((percent / 100) * steps);
-  //   return Array.from({ length: steps }, (_, i) =>
-  //     i < filledSteps ? fillColor : emptyColor
-  //   );
-  // };
+
+
+
+
+  const paistock = [{
+    heading: "Yellow Stock",
+    percent: 70,
+    strokeColor: '#faad14'
+  },
+  {
+    heading: "Low Stock",
+    percent: 10,
+    strokeColor: '#ff4d4f'
+  },]
+  const usedPercent = paistock.reduce((sum, item) => sum + item.percent, 0);
+  const remainingPercent = 100 - usedPercent;
+
+  if (remainingPercent > 0) {
+    paistock.push({
+      heading: "Normal Stock",
+      percent: remainingPercent,
+      strokeColor: '#52c41a' // neutral gray color
+    });
+  }
+
+
 
   const pieChartData = {
     labels: paistock.map(item => item.heading),
@@ -157,28 +166,6 @@ const Option =
       label: 'last_week',
     },
   ]
-
-
-const paistock = [{
-  heading: "Yellow Stock",
-  percent: 70,
-  strokeColor: 'yellow'
-},
-{
-  heading: "Low Stock",
-  percent: 10,
-  strokeColor: 'tomato'
-},]
-const usedPercent = paistock.reduce((sum, item) => sum + item.percent, 0);
-const remainingPercent = 100 - usedPercent;
-
-if (remainingPercent > 0) {
-  paistock.push({
-    heading: "Normal Stock",
-    percent: remainingPercent,
-    strokeColor: 'green' // neutral gray color
-  });
-}
 
 
 const StockCards = () => {

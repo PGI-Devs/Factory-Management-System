@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import './stockAnalysis.css'
 import StockCards from './StockCards'
-import DashboardNavBar from '../DashboardNavBar/DashboardNavBar'
 import { StockAnalasysOptions } from '../../Navdata/dashboardNavData'
-import { Button, Flex, Progress, Select } from 'antd';
+import { Button } from 'antd';
 import { MdAdd, MdArrowCircleDown, } from 'react-icons/md'
 import ProgressBarSection from './ProgressBarSection'
 import { useLocation, useParams } from 'react-router-dom'
@@ -169,7 +168,7 @@ const StockAnalasysSection = () => {
 
 
 
-  const [tougle, setTougle] = useState(() => { if (currentPath != '/details') { return true } })
+  const [tougle, setTougle] = useState(() => { if (currentPath !== '/details') { return true } })
 
   const TougleHandler = () => {
     // console.log(currentPath)

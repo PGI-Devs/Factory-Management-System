@@ -9,6 +9,8 @@ import {
   OrderedListOutlined,
   PieChartOutlined,
   ProductOutlined,
+  ShopOutlined,
+  ShoppingOutlined,
   TeamOutlined,
 } from '@ant-design/icons';
 import './sidebar.css'
@@ -36,14 +38,19 @@ const items = [
 
   ]),
   getItem('Production & Manufacturing', 'sub2', <DesktopOutlined />, [
-    getItem(  <Link to='/production'>Production Schedule</Link>, '4', <ClockCircleOutlined />),
+    getItem(<Link to='/production'>Production Schedule</Link>, '4', <ClockCircleOutlined />),
 
 
     getItem('Assembly line Status', '5', <CheckCircleOutlined />),
     getItem('Work Order', '6', <OrderedListOutlined />),
     getItem('Bill Of Material', '7', <BilibiliOutlined />),
   ]),
-  getItem('Team', 'sub3', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
+  getItem('Team', 'sub3', <TeamOutlined />,
+    [
+      getItem(<Link to={'/Purchase'}>Purchase Department</Link>, '6' ,<ShoppingOutlined/>),
+      getItem('Salses Department', '8' , < ShopOutlined/>)]
+
+  ),
   getItem('Files', '9', <FileOutlined />),
 ];
 const Sidebar = () => {
@@ -76,36 +83,36 @@ const Sidebar = () => {
     <Layout style={{ minHeight: '100vh' }}>
 
       {isMobileView && (
-  <button
-    onClick={() => setCollapsed(prev => !prev)}
-    style={{
-      position: 'fixed',
-      top: 10,
-      left: 10,
-      fontSize: '25px',
-      zIndex: 1100,
-      background: 'transparent',
-      border: 'none',
-      borderRadius: '4px',
-      padding: '8px',
-      color: 'black',
-      cursor: 'pointer',
-      transition: 'all 0.5s' 
-    }}
-  >
-    {collapsed ? (
-      // Hamburger icon
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="30" height="30">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    ) : (
-      // Close (X) icon
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="30" height="30">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    )}
-  </button>
-)}
+        <button
+          onClick={() => setCollapsed(prev => !prev)}
+          style={{
+            position: 'fixed',
+            top: 10,
+            left: 10,
+            fontSize: '25px',
+            zIndex: 1100,
+            background: 'transparent',
+            border: 'none',
+            borderRadius: '4px',
+            padding: '8px',
+            color: 'black',
+            cursor: 'pointer',
+            transition: 'all 0.5s'
+          }}
+        >
+          {collapsed ? (
+            // Hamburger icon
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="30" height="30">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          ) : (
+            // Close (X) icon
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="30" height="30">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          )}
+        </button>
+      )}
 
 
 
@@ -114,18 +121,18 @@ const Sidebar = () => {
         collapsed={collapsed}
         // onCollapse={value => setCollapsed(value)}
         onCollapse={() => setCollapsed(prev => !prev)}
-          collapsedWidth={isMobileView ? 0 : 80} 
+        collapsedWidth={isMobileView ? 0 : 80}
 
         style={{
           // background: 'linear-gradient(rgb(4, 120, 87) 0%, rgb(6, 95, 70) 100%)',
           background: 'rgb(4, 120, 87)',
-       position: isMobileView ? 'fixed' : 'sticky',
+          position: isMobileView ? 'fixed' : 'sticky',
           top: 0,
           bottom: 0,
           left: 0,
           zIndex: 1000,
           overflow: 'auto',
- width: collapsed ? (isMobileView ? 0 : 80) : 260,
+          width: collapsed ? (isMobileView ? 0 : 80) : 260,
         }}
         width={260}
 

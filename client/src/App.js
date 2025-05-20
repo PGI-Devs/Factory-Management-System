@@ -8,6 +8,7 @@ import InventoryDetails from "./componant/Admin//Inventory/InventoryDetails.jsx"
 import InventoryPurchesUpdate from "./componant/Admin/Inventory/InventoryPurchesUpdate.jsx";
 import ProductionDashboard from "./componant/Admin/Production/ProductionDashboard.jsx";
 import ProductionTargetDetails from "./componant/Admin/Production/ProductionTargetDetails.jsx";
+import PurchaseDeptDashboard from "./componant/Admin/PruchaseDepartment/PurchaseDeptDashboard.jsx";
 function App() {
 
 const ScrollToTop = () => {
@@ -32,6 +33,7 @@ const ScrollToTop = () => {
     <Route path="/details/purches" Component={InventoryPurchesUpdate}/>
     <Route path="/production" Component={ProductionDashboard}/>
     <Route path="/production/target/:id" Component={ProductionTargetDetails}/>
+    <Route path="/Purchase" Component={PurchaseDeptDashboard}/>
   </Routes>
   </BrowserRouter>
   );

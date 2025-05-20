@@ -91,3 +91,23 @@ import { AiOutlineClockCircle, AiOutlineDashboard, AiOutlineDatabase, AiOutlineD
         },
 
     ]
+
+    export  const PurchaseNav =[
+ {
+            nav: 'Factory 1',
+            // link: '/details',
+            icon: <AiOutlineDashboard />
+        },
+        {
+            nav: 'Factory 2',
+            // link: '/details/inventory',
+            
+            icon: <AiOutlineDatabase />
+        },
+        {
+            nav: 'Factory 3',
+            // link: '/details/analysis',
+            icon: <AiOutlinePieChart />
+        },
+
+    ]
